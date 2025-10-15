@@ -1,4 +1,8 @@
-import pkg_resources
+try:
+    from importlib.resources import files
+except ImportError:
+    from importlib_resources import files
+
 import pandas as pd
 
 
@@ -11,7 +15,6 @@ def load_Student_Mark():
     Number of Attributes: 3 including the target variable.
 
     """
-    # This is a stream-like object. If you want the actual info, call
-    # stream.read()
-    stream = pkg_resources.resource_stream(__name__, 'Student_Marks.csv')
-    return pd.read_csv(stream)
+    # Use importlib.resources for modern Python versions
+    dataset_file = files('desReg.dataset').joinpath('Student_Marks.csv')
+    return pd.read_csv(dataset_file)
