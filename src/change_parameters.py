@@ -10,6 +10,24 @@ from sklearn.linear_model import Lasso
 
 from scipy.spatial import distance
 
+""" 
+Standart Hyperparameters:
+
+regressors_list = None (DecisionTreeRegressor), 
+n_estimators_bag = 10,
+random_state= None,
+DSEL_perc = 0.95, 
+XTRAIN_full = True,
+n_jobs= -1,
+k = 5,
+distance = scipy.spatial.distance.euclidean, 
+competence_region = 'knn',
+competence_level= desReg.utils.measures.all_errors,
+regressor_selection= np.mean,
+aggregation_method= np.mean,
+ensemble_type= 'DES'
+"""
+
 data = load_Student_Mark()
 X = data.iloc[:,:-1].to_numpy()
 y = np.ravel(data.iloc[:, -1:]) 
@@ -18,17 +36,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 heterogeneous_DES = DESRegression(
      regressors_list = [Lasso(alpha = 0.15),SVR()], 
      n_estimators_bag = 10,
-     random_state= None,
      DSEL_perc = 0.95, 
      XTRAIN_full = True,
-     n_jobs= -1,
-     k = 5,
      distance = distance.minkowski, 
      competence_region = 'output_profiles',
-     competence_level= mean_squared_error,
-     regressor_selection= np.mean,
-     aggregation_method= np.mean,
-     ensemble_type= 'DES'
+     competence_level= mean_squared_error
      )
 
 heterogeneous_DES.fit(X_train, y_train)
