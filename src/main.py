@@ -3,14 +3,14 @@ import change_parameters
 
 
 def simulate(amount: int = 100) -> list:
-    mse_list = list
+    mse_list = []
     for i in range(100):
         mse_list.append(change_parameters.test())
     return mse_list
 
     
 if __name__ == "__main__":
-    mse_list = simulate(30)
+    mse_list = simulate(100)
 
     print(mse_list)
     mse_numpy = np.array(mse_list)
