@@ -2,8 +2,8 @@ import numpy as np
 import change_parameters
 
 
-def simulate(amount: int = 100) -> list[float]:
-    mse_list = list[float]
+def simulate(amount: int = 100) -> list:
+    mse_list = list
     for i in range(100):
         mse_list.append(change_parameters.test())
     return mse_list
