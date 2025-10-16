@@ -6,7 +6,7 @@ except ImportError:
 import pandas as pd
 
 
-def load_Student_Mark():
+def load_Student_Mark() -> pd.DataFrame:
     """Return the dataset Student Mark.
       The data consists of Marks of students including their study time & number of courses. 
       The dataset is downloaded from UCI Machine Learning Repository.
