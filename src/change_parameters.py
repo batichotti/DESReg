@@ -7,8 +7,6 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from sklearn.svm import SVR
-from sklearn.linear_model import Lasso
 
 from scipy.spatial import distance
 
@@ -29,6 +27,21 @@ regressor_selection= np.mean,
 aggregation_method= np.mean,
 ensemble_type= 'DES'
 """
+
+"""
+Partitions with Datasets:
+
+partition_name = './Datasets/Abalone/abalone-5-'
+partition_name = './Datasets/Concrete/concrete-5-'
+partition_name = './Datasets/Liver/liver-5-'
+partition_name = './Datasets/Machine_CPU/machineCPU-5-'
+partition_name = './Datasets/Real_estate/Real_estate-5-'
+partition_name = './Datasets/Student_marks/student_marks-5-' 
+partition_name = './Datasets/Wine_quality_red/winequality-red-5-'
+partition_name = './Datasets/Wine_quality_white/winequality-white-5-'
+partition_name = './Datasets/Yacht/yacht_hydrodynamics-5-'
+"""
+
 def test(regressors_list = None, 
      n_estimators_bag = 10,
      random_state= None,

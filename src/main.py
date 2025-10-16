@@ -1,6 +1,8 @@
 import numpy as np
 import change_parameters
 
+# from sklearn.svm import SVR
+# from sklearn.linear_model import Lasso
 
 def simulate(amount: int = 100) -> list:
     mse_list = []
@@ -10,7 +12,7 @@ def simulate(amount: int = 100) -> list:
 
     
 if __name__ == "__main__":
-    mse_list = simulate(100)
+    mse_list = simulate()
 
     print(mse_list)
     mse_numpy = np.array(mse_list)
