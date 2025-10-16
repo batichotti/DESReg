@@ -55,7 +55,7 @@ def test(regressors_list = None,
      regressor_selection = np.mean,
      aggregation_method = np.mean,
      ensemble_type: str = 'DES',
-     validation: str = 'Hold Over',
+     validation: str = 'Hold Out', # Cross Validantion
      dataset: str = 'Student Mark') -> float:
      
      data = pd.DataFrame
@@ -63,10 +63,21 @@ def test(regressors_list = None,
      match dataset:
           case 'Student Mark':     
                data = load_Student_Mark()
+          case _:
+               print('Invalid Dataset')
+               exit(0)
      
      X = data.iloc[:,:-1].to_numpy()
      y = np.ravel(data.iloc[:, -1:]) 
-     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+     
+     match validation:
+          case 'Hold Out':
+               X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+          case 'Cross Validation':
+               pass
+          case _:
+               print('Invalid validator')
+               exit(0)
 
      heterogeneous_DES = DESRegression(
           regressors_list=regressors_list,
