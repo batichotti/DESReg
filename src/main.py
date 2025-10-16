@@ -7,7 +7,7 @@ import change_parameters
 def simulate(amount: int = 100) -> list:
     mse_list = []
     for i in range(100):
-        mse_list.append(change_parameters.test())
+        mse_list.append(change_parameters.test(k=10))
     return mse_list
 
     

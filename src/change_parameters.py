@@ -43,7 +43,7 @@ partition_name = './Datasets/Yacht/yacht_hydrodynamics-5-'
 """
 
 def test(regressors_list = None, 
-     n_estimators_bag = 10,
+     n_estimators_bag = 100,
      random_state= None,
      DSEL_perc = 0.95, 
      XTRAIN_full = True,
