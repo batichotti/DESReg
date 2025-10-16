@@ -42,20 +42,21 @@ partition_name = './Datasets/Wine_quality_white/winequality-white-5-'
 partition_name = './Datasets/Yacht/yacht_hydrodynamics-5-'
 """
 
-def test(regressors_list = None, 
-     n_estimators_bag = 100,
+def test(regressors_list = None,
+     n_estimators_bag: int = 100,
      random_state= None,
-     DSEL_perc = 0.95, 
-     XTRAIN_full = True,
-     n_jobs= -1,
-     k = 5,
+     DSEL_perc: float = 0.95, 
+     XTRAIN_full: bool = True,
+     n_jobs: int = -1,
+     k: int = 5,
      distance = distance.euclidean, 
-     competence_region = 'knn',
-     competence_level= measures.all_errors,
-     regressor_selection= np.mean,
-     aggregation_method= np.mean,
-     ensemble_type= 'DES',
-     dataset = 'Student Mark') -> float:
+     competence_region: str = 'knn',
+     competence_level = measures.all_errors,
+     regressor_selection = np.mean,
+     aggregation_method = np.mean,
+     ensemble_type: str = 'DES',
+     validation: str = 'Hold Over',
+     dataset: str = 'Student Mark') -> float:
      
      data = pd.DataFrame
      
