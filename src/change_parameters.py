@@ -38,8 +38,8 @@ def test() -> float:
           n_estimators_bag = 10,
           DSEL_perc = 0.95, 
           XTRAIN_full = True,
-          distance = distance.minkowski, 
-          competence_region = 'output_profiles',
+          distance = distance.chebyshev,
+          competence_region = 'knn',
           competence_level= mean_squared_error
           )
 
