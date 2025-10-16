@@ -16,7 +16,7 @@ y = np.ravel(data.iloc[:, -1:])
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 heterogeneous_DES = DESRegression(regressors_list = [Lasso(alpha = 0.15),SVR()], 
-     n_estimators_bag = 10, 
+     n_estimators_bag = 10,
      DSEL_perc = 0.95, 
      XTRAIN_full = True, 
      distance = distance.minkowski, 

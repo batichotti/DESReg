@@ -396,7 +396,9 @@ class DESRegression(BaseEstimator):
         self.pred_DSEL_ = self._predict_base(self.DSEL_data_)
                
         for regressor in self.regressors_list_:
-            output_profile_instance.append(regressor.predict(instance))
+            output_profile_instance.append(regressor.predict(instance)[0])
+        
+        output_profile_instance = np.array(output_profile_instance)
 
         idxs = []
         idx_count = 0
@@ -418,7 +420,7 @@ class DESRegression(BaseEstimator):
 
         dists = np.zeros(len(idxs))           
         for i in range(0, len(idxs)):
-            dists[i] = self.distance_(self.DSEL_data_[idxs[i]], instance)
+            dists[i] = self.distance_(self.DSEL_data_[idxs[i]], instance[0])
         
         return idxs, dists
 
