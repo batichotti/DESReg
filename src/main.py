@@ -6,13 +6,13 @@ import change_parameters
 
 def simulate(amount: int = 100) -> list:
     mse_list = []
-    for i in range(100):
+    for i in range(amount):
         mse_list.append(change_parameters.test(k=10))
     return mse_list
 
     
 if __name__ == "__main__":
-    mse_list = simulate()
+    mse_list = simulate(500)
 
     print(mse_list)
     mse_numpy = np.array(mse_list)
