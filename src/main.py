@@ -12,6 +12,7 @@ def simulate(amount: int = 100) -> list:
 
     
 if __name__ == "__main__":
+    
     mse_list = simulate(500)
 
     print(mse_list)
