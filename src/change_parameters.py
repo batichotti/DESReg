@@ -85,5 +85,5 @@ def test(regressors_list = None,
 
      heterogeneous_DES.fit(X_train, y_train)
      y_pred = heterogeneous_DES.predict(X_test)
-     # print('MSE error:', mean_squared_error(y_test, y_pred))
+
      return mean_squared_error(y_test, y_pred)
