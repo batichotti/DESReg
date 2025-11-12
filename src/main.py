@@ -35,7 +35,6 @@ def simulate(repeats=2, n_splits=10, dataset='Student Mark', distance=DISTANCE_H
     return mse_list
 
 if __name__ == "__main__":
-    
     for dt in DISTANCE_HEURISTICS_LIST:
         for cr in COMPETENCE_REGION_LIST:
             print("="*30)
