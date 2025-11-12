@@ -1,8 +1,11 @@
 import numpy as np
 import change_parameters
 
+from scipy.spatial import distance
+
 # from sklearn.svm import SVR
 # from sklearn.linear_model import Lasso
+
 
 def simulate(amount: int = 100) -> list:
     mse_list = []
@@ -12,6 +15,10 @@ def simulate(amount: int = 100) -> list:
 
     
 if __name__ == "__main__":
+    
+    competence_region = ['knn', 'cluster', 'output_profiles']
+    distance_list = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
+    
     mse_list = simulate()
 
     print(mse_list)
