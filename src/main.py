@@ -2,6 +2,8 @@ import numpy as np
 from sklearn.model_selection import RepeatedKFold
 from change_parameters import load_dataset, test
 from scipy.spatial import distance
+from dataclasses import dataclass
+import pandas as pd
 
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
@@ -34,18 +36,50 @@ def simulate(repeats=2, n_splits=10, dataset='Student Mark', distance=DISTANCE_H
 
     return mse_list
 
+@dataclass
+class metrics:
+    competence: str
+    distance: str
+    mean: float = 0.0
+    median: float = 0.0
+    std: float = 0.0
+    cv: float = 0.0
+
 if __name__ == "__main__":
+
+    metrics_list = []
+
     for dt in DISTANCE_HEURISTICS_LIST:
         for cr in COMPETENCE_REGION_LIST:
-            print("="*30)
-            print(f"CR: {cr} & D: {dt}")
+            print("=" * 30)
+            print(f"CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
             mse_list = simulate(repeats=2, n_splits=10, dataset='Student Mark', distance=dt, competence_region=cr)
-            
-            # print("MSEs:", mse_list)
+
+            # print(mse_list)
             mse_numpy = np.array(mse_list)
-            print("Média:", np.mean(mse_numpy))
-            print("Mediana:", np.median(mse_numpy))
-            print("Desvio padrão:", np.std(mse_numpy))
-            print("Coeficiente de Variação (%):", (np.std(mse_numpy) / np.mean(mse_numpy)) * 100) # CV baixo (< 15%~20%) indica dispersão relativamente baixa
-            print("="*30)
+            mean_val = np.mean(mse_numpy)
+            median_val = np.median(mse_numpy)
+            std_val = np.std(mse_numpy)
+            cv_val = (std_val / mean_val) * 100 if mean_val != 0 else np.nan
+
+            metrics_list.append(metrics(
+                competence=cr,
+                distance=str(dt).split(' ')[1].capitalize(),
+                mean=mean_val,
+                median=median_val,
+                std=std_val,
+                cv=cv_val
+            ))
+
+            print("Média:", mean_val)
+            print("Mediana:", median_val)
+            print("Desvio padrão:", std_val)
+            print("Coeficiente de Variação (%):", cv_val)
+            print("=" * 30)
             print("\n")
+
+    # Salva metrics_list em CSV usando pandas
+    df = pd.DataFrame([m.__dict__ for m in metrics_list])
+    csv_path = "metrics_results.csv"
+    df.to_csv(csv_path, index=False)
+    print(f"Metrics salvo em: {csv_path}")
