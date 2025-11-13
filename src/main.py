@@ -53,7 +53,7 @@ if __name__ == "__main__":
         for cr in COMPETENCE_REGION_LIST:
             print("=" * 30)
             print(f"CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
-            mse_list = simulate(repeats=2, n_splits=10, dataset='Student Mark', distance=dt, competence_region=cr)
+            mse_list = simulate(repeats=2, n_splits=10, dataset='yatch', distance=dt, competence_region=cr)
 
             # print(mse_list)
             mse_numpy = np.array(mse_list)
@@ -77,8 +77,8 @@ if __name__ == "__main__":
             print("Coeficiente de Variação (%):", cv_val)
             print("=" * 30)
             print("\n")
+            exit(0)
 
-    # Salva metrics_list em CSV usando pandas
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"
     df.to_csv(csv_path, index=False)

@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error
 
+from os import path
 
 from scipy.spatial import distance
 
@@ -77,9 +78,46 @@ def test(X_train, y_train, X_test, y_test,
 
 
 def load_dataset(dataset='Student Mark'):
+    dataset = dataset.lower()
     match dataset:
-        case 'Student Mark':
-            data = load_Student_Mark()
+        case 'abalone':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "abalone.csv"), low_memory=False)
+        case 'airfoil':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "airfoil_self_noise.csv"), low_memory=False)
+        case 'bank8fm':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "bank8FM.csv"), low_memory=False)
+        case 'bank32nh':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "bank32nh.csv"), low_memory=False)
+        case 'ccpp':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "CCPP.csv"), low_memory=False)
+        case 'concrete':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "concrete.csv"), low_memory=False)
+        case 'delta elevators':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "delta_elevators.csv"), low_memory=False)
+        case 'housing':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "housing.csv"), low_memory=False)
+        case 'liver':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "liver.csv"), low_memory=False)
+        case 'machine':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "machine.csv"), low_memory=False)
+        case 'puma8nh':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "puma8NH.csv"), low_memory=False)
+        case 'puma32NH':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "puma32NH.csv"), low_memory=False)
+        case 'real estate':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "real_estate.csv"), low_memory=False)
+        case 'stock':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "stock.csv"), low_memory=False)
+        case 'student mark':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "Student_marks.csv"), low_memory=False)
+        case 'triazines':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "triazines.csv"), low_memory=False)
+        case 'wine quality red':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "wine_quality_red.csv"), low_memory=False)
+        case 'wine quality white':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "wine_quality_white.csv"), low_memory=False)
+        case 'yatch':
+            data = pd.read_csv(path.join(path.dirname(__file__), "../datasets", "yatch.csv"), low_memory=False)
         case _:
             raise ValueError(f"Dataset '{dataset}' não suportado.")
     X = data.iloc[:, :-1].to_numpy()
