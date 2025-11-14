@@ -5,6 +5,8 @@ from scipy.spatial import distance
 from dataclasses import dataclass
 import pandas as pd
 
+import time
+
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
 
@@ -16,7 +18,7 @@ def make_distance_safe(dist_func):
     return safe_dist
 
 
-def simulate(repeats=2, n_splits=10, dataset='Student Mark', distance=DISTANCE_HEURISTICS_LIST[0], competence_region=COMPETENCE_REGION_LIST[0]) -> list:
+def simulate(repeats=2, n_splits=10, dataset='student_mark', distance=DISTANCE_HEURISTICS_LIST[0], competence_region=COMPETENCE_REGION_LIST[0]) -> list:
     X, y = load_dataset(dataset)
     rkf = RepeatedKFold(n_splits=n_splits, n_repeats=repeats, random_state=42)
     mse_list = []
@@ -44,6 +46,7 @@ class metrics:
     median: float = 0.0
     std: float = 0.0
     cv: float = 0.0
+    duration: float = 0.0
 
 if __name__ == "__main__":
 
@@ -53,7 +56,10 @@ if __name__ == "__main__":
         for cr in COMPETENCE_REGION_LIST:
             print("=" * 30)
             print(f"CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
-            mse_list = simulate(repeats=2, n_splits=10, dataset='yatch', distance=dt, competence_region=cr)
+
+            start_time = time.time()
+            mse_list = simulate(repeats=2, n_splits=10, dataset='student_marks', distance=dt, competence_region=cr)
+            duration = time.time() - start_time
 
             # print(mse_list)
             mse_numpy = np.array(mse_list)
@@ -68,16 +74,17 @@ if __name__ == "__main__":
                 mean=mean_val,
                 median=median_val,
                 std=std_val,
-                cv=cv_val
+                cv=cv_val,
+                duration=duration
             ))
 
             print("Média:", mean_val)
             print("Mediana:", median_val)
             print("Desvio padrão:", std_val)
             print("Coeficiente de Variação (%):", cv_val)
+            print("Duração (s):", duration)
             print("=" * 30)
             print("\n")
-            exit(0)
 
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"

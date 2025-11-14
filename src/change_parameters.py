@@ -77,10 +77,10 @@ def test(X_train, y_train, X_test, y_test,
     return mean_squared_error(y_test, y_pred)
 
 
-def load_dataset(dataset='Student Mark'):
+def load_dataset(dataset='abalone'):
     dataset = dataset.lower()
     datasets_dir = path.join(path.dirname(__file__), "../datasets")
-    dataset_files = {path.splitext(file)[0].lower(): path.join(datasets_dir, file) for file in listdir(datasets_dir) if file.endswith('.csv')}
+    dataset_files = {file[:-4].lower(): path.join(datasets_dir, file) for file in listdir(datasets_dir) if file.endswith('.csv')}
     
     if dataset not in dataset_files:
         raise ValueError(f"Dataset '{dataset}' não suportado.")
