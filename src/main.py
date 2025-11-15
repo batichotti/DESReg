@@ -5,10 +5,12 @@ from scipy.spatial import distance
 from dataclasses import dataclass
 import pandas as pd
 
-import time
+from time import time
+from tqdm import tqdm
 
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
+DATASETS_LIST = ['student_marks', 'liver', 'machine', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
 
 def make_distance_safe(dist_func):
     def safe_dist(u, v):
@@ -18,7 +20,7 @@ def make_distance_safe(dist_func):
     return safe_dist
 
 
-def simulate(repeats=2, n_splits=10, dataset='student_mark', distance=DISTANCE_HEURISTICS_LIST[0], competence_region=COMPETENCE_REGION_LIST[0]) -> list:
+def simulate(repeats=2, n_splits=10, dataset='student_marks', distance=DISTANCE_HEURISTICS_LIST[0], competence_region=COMPETENCE_REGION_LIST[0]) -> list:
     X, y = load_dataset(dataset)
     rkf = RepeatedKFold(n_splits=n_splits, n_repeats=repeats, random_state=42)
     mse_list = []
@@ -39,52 +41,63 @@ def simulate(repeats=2, n_splits=10, dataset='student_mark', distance=DISTANCE_H
     return mse_list
 
 @dataclass
-class metrics:
+class Metrics:
+    dataset: str
     competence: str
     distance: str
     mean: float = 0.0
     median: float = 0.0
     std: float = 0.0
     cv: float = 0.0
+    fit_time: float = 0.0
+    predict_time: float = 0.0
     duration: float = 0.0
 
 if __name__ == "__main__":
 
     metrics_list = []
 
-    for dt in DISTANCE_HEURISTICS_LIST:
-        for cr in COMPETENCE_REGION_LIST:
-            print("=" * 30)
-            print(f"CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
+    for dataset in tqdm(DATASETS_LIST, desc="Datasets"):
+        for dt in tqdm(DISTANCE_HEURISTICS_LIST, desc="Distances", leave=False):
+            for cr in tqdm(COMPETENCE_REGION_LIST, desc="Competence Region Heuristics", leave=False):
+                print('\n\n\n')
+                print("=" * 30)
+                print(f"DATA: {dataset} -> CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
 
-            start_time = time.time()
-            mse_list = simulate(repeats=2, n_splits=10, dataset='student_marks', distance=dt, competence_region=cr)
-            duration = time.time() - start_time
+                start_time = time()
+                results = simulate(repeats=2, n_splits=10, dataset=dataset, distance=dt, competence_region=cr)
+                duration = time() - start_time
 
-            # print(mse_list)
-            mse_numpy = np.array(mse_list)
-            mean_val = np.mean(mse_numpy)
-            median_val = np.median(mse_numpy)
-            std_val = np.std(mse_numpy)
-            cv_val = (std_val / mean_val) * 100 if mean_val != 0 else np.nan
+                mse_vals = [r["mse"] for r in results]
+                fit_times = [r["fit_time"] for r in results]
+                predict_times = [r["predict_time"] for r in results]
 
-            metrics_list.append(metrics(
-                competence=cr,
-                distance=str(dt).split(' ')[1].capitalize(),
-                mean=mean_val,
-                median=median_val,
-                std=std_val,
-                cv=cv_val,
-                duration=duration
-            ))
+                mean_val = np.mean(mse_vals)
+                median_val = np.median(mse_vals)
+                std_val = np.std(mse_vals)
+                cv_val = (std_val / mean_val) * 100 if mean_val != 0 else np.nan
 
-            print("Média:", mean_val)
-            print("Mediana:", median_val)
-            print("Desvio padrão:", std_val)
-            print("Coeficiente de Variação (%):", cv_val)
-            print("Duração (s):", duration)
-            print("=" * 30)
-            print("\n")
+                metrics_list.append(Metrics(
+                    dataset=dataset,
+                    competence=cr,
+                    distance=str(dt).split(' ')[1].capitalize(),
+                    mean=mean_val,
+                    median=median_val,
+                    std=std_val,
+                    cv=cv_val,
+                    fit_time=np.sum(fit_times),
+                    predict_time=np.sum(predict_times),
+                    duration=duration,
+                ))
+
+                print("Média MSE:", mean_val)
+                print("Mediana MSE:", median_val)
+                print("Desvio padrão MSE:", std_val)
+                print("Coeficiente de Variação MSE (%):", cv_val)
+                print("Tempo de Fit (s):", np.sum(fit_times))
+                print("Tempo de Predict (s):", np.sum(predict_times))
+                print("Duração total (s):", duration)
+                print("=" * 30)
 
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"
