@@ -11,7 +11,7 @@ from tqdm import tqdm
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
 # DATASETS_LIST = ['student_marks', 'liver', 'machine', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
-DATASETS_LIST = ['liver', 'student_marks', 'ccpp']
+DATASETS_LIST = ['student_marks', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh', 'liver', 'machine']
 
 def make_distance_safe(dist_func):
     def safe_dist(u, v):
@@ -57,8 +57,8 @@ class Metrics:
 if __name__ == "__main__":
 
     metrics_list = []
-
     for dataset in tqdm(DATASETS_LIST, desc="Datasets"):
+        dataset_metrics = []
         for dt in tqdm(DISTANCE_HEURISTICS_LIST, desc="Distances", leave=False):
             for cr in tqdm(COMPETENCE_REGION_LIST, desc="Competence Region Heuristics", leave=False):
                 print('\n\n\n')
@@ -73,12 +73,13 @@ if __name__ == "__main__":
                 fit_times = [r["fit_time"] for r in results]
                 predict_times = [r["predict_time"] for r in results]
 
+                # print(mse_vals)
                 mean_val = np.mean(mse_vals)
                 median_val = np.median(mse_vals)
                 std_val = np.std(mse_vals)
                 cv_val = (std_val / mean_val) * 100 if mean_val != 0 else np.nan
 
-                metrics_list.append(Metrics(
+                metric = Metrics(
                     dataset=dataset,
                     competence=cr,
                     distance=str(dt).split(' ')[1].capitalize(),
@@ -89,7 +90,9 @@ if __name__ == "__main__":
                     fit_time=np.sum(fit_times),
                     predict_time=np.sum(predict_times),
                     duration=duration,
-                ))
+                )
+                metrics_list.append(metric)
+                dataset_metrics.append(metric)
 
                 print("Dataset:", dataset)
                 print("Média MSE:", mean_val)
@@ -100,6 +103,11 @@ if __name__ == "__main__":
                 print("Tempo de Predict (s):", np.sum(predict_times))
                 print("Duração total (s):", duration)
                 print("=" * 30)
+
+        df_dataset = pd.DataFrame([m.__dict__ for m in dataset_metrics])
+        csv_path_dataset = f"metrics_results_{dataset}.csv"
+        df_dataset.to_csv(csv_path_dataset, index=False)
+        print(f"Metrics salvo para dataset {dataset} em: {csv_path_dataset}")
 
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"
