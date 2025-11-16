@@ -10,8 +10,7 @@ from tqdm import tqdm
 
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
-# DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
-DATASETS_LIST = ['student_marks', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh', 'liver']
+DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'trianzines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
 
 def make_distance_safe(dist_func):
     def safe_dist(u, v):
