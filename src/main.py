@@ -10,8 +10,8 @@ from tqdm import tqdm
 
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
-# DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
-DATASETS_LIST = ['housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
+DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
+# DATASETS_LIST = ['housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
 
 def make_distance_safe(dist_func):
     def safe_dist(u, v):
@@ -66,12 +66,8 @@ if __name__ == "__main__":
                 print(f"DATA: {dataset} -> CR: {cr} & D: {str(dt).split(' ')[1].capitalize()}")
 
                 start_time = time()
-                results = simulate(repeats=2, n_splits=10, dataset=dataset, distance=dt, competence_region=cr)
+                mse_vals = simulate(repeats=2, n_splits=10, dataset=dataset, distance=dt, competence_region=cr)
                 duration = time() - start_time
-
-                mse_vals = [r["mse"] for r in results]
-                fit_times = [r["fit_time"] for r in results]
-                predict_times = [r["predict_time"] for r in results]
 
                 # print(mse_vals)
                 mean_val = np.mean(mse_vals)
@@ -87,8 +83,6 @@ if __name__ == "__main__":
                     median=median_val,
                     std=std_val,
                     cv=cv_val,
-                    fit_time=np.sum(fit_times),
-                    predict_time=np.sum(predict_times),
                     duration=duration,
                 )
                 metrics_list.append(metric)
@@ -99,8 +93,6 @@ if __name__ == "__main__":
                 print("Mediana MSE:", median_val)
                 print("Desvio padrão MSE:", std_val)
                 print("Coeficiente de Variação MSE (%):", cv_val)
-                print("Tempo de Fit (s):", np.sum(fit_times))
-                print("Tempo de Predict (s):", np.sum(predict_times))
                 print("Duração total (s):", duration)
                 print("=" * 30)
 
@@ -108,6 +100,7 @@ if __name__ == "__main__":
         csv_path_dataset = f"metrics_results_{dataset}.csv"
         df_dataset.to_csv(csv_path_dataset, index=False)
         print(f"Metrics salvo para dataset {dataset} em: {csv_path_dataset}")
+        exit(0)
 
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"

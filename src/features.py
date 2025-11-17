@@ -73,20 +73,11 @@ def test(X_train, y_train, X_test, y_test,
                         ensemble_type=ensemble_type
                     )
 
-                    start_time = time()
                     heterogeneous_DES.fit(X_train, y_train)
-                    fit_time = time() - start_time
                     
-                    start_time = time()
                     y_pred = heterogeneous_DES.predict(X_test)
-                    predict_time = time() - start_time
                     
-                    mse = mean_squared_error(y_test, y_pred)
-                    return {
-                        "mse": mse,
-                        "fit_time": fit_time,
-                        "predict_time": predict_time
-                    }
+                    return mean_squared_error(y_test, y_pred)
 
 
 def load_dataset(dataset='abalone'):
