@@ -100,7 +100,6 @@ if __name__ == "__main__":
         csv_path_dataset = f"metrics_results_{dataset}.csv"
         df_dataset.to_csv(csv_path_dataset, index=False)
         print(f"Metrics salvo para dataset {dataset} em: {csv_path_dataset}")
-        exit(0)
 
     df = pd.DataFrame([m.__dict__ for m in metrics_list])
     csv_path = "metrics_results.csv"
