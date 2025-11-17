@@ -1,5 +1,4 @@
 from desReg.des.DESRegression import DESRegression
-from desReg.dataset import load_Student_Mark
 from desReg.utils import measures
 
 import pandas as pd
