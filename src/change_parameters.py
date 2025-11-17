@@ -99,6 +99,6 @@ def load_dataset(dataset='abalone'):
         raise ValueError(f"Dataset '{dataset}' não suportado.")
     
     data = pd.read_csv(dataset_files[dataset], low_memory=False)
-    X = data.iloc[:, :-1].to_numpy()
-    y = np.ravel(data.iloc[:, -1:])
+    X = data.iloc[:, 1:].to_numpy()
+    y = np.ravel(data.iloc[:, :1])
     return X, y
