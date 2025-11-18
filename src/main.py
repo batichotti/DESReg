@@ -10,8 +10,8 @@ from tqdm import tqdm
 
 COMPETENCE_REGION_LIST = ['knn', 'cluster', 'output_profiles']
 DISTANCE_HEURISTICS_LIST = [distance.braycurtis, distance.canberra, distance.chebyshev, distance.cityblock, distance.cosine, distance.euclidean, distance.minkowski, distance.sqeuclidean]
-DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
-# DATASETS_LIST = ['housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
+# DATASETS_LIST = ['student_marks', 'liver', 'yatch', 'housing', 'real_estate', 'concrete', 'triazines', 'stock', 'airfoild', 'wine_quality_red', 'abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
+DATASETS_LIST = ['abalone', 'wine_quality_white', 'ccpp', 'delta_elevators', 'bank8fm', 'puma8nh', 'puma32h', 'bank32nh']
 
 def make_distance_safe(dist_func):
     def safe_dist(u, v):
@@ -50,8 +50,6 @@ class Metrics:
     median: float = 0.0
     std: float = 0.0
     cv: float = 0.0
-    fit_time: float = 0.0
-    predict_time: float = 0.0
     duration: float = 0.0
 
 if __name__ == "__main__":

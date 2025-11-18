@@ -81,6 +81,28 @@ def test(X_train, y_train, X_test, y_test,
 
 
 def load_dataset(dataset='abalone'):
+    """
+    Loads a dataset from the local datasets directory.
+    Parameters
+    ----------
+    dataset : str, optional
+        The name of the dataset to load (default is 'abalone').
+        The function expects a CSV file with the same name (case-insensitive)
+        in the '../datasets' directory relative to this file.
+    Returns
+    -------
+    X : numpy.ndarray
+        Feature matrix containing all columns except the first.
+    y : numpy.ndarray
+        Target vector containing the first column of the dataset.
+    Raises
+    ------
+    ValueError
+        If the specified dataset is not found in the datasets directory.
+    Notes
+    -----
+    The dataset CSV file should have the target variable in the first column.
+    """
     dataset = dataset.lower()
     datasets_dir = path.join(path.dirname(__file__), "../datasets")
     dataset_files = {file[:-4].lower(): path.join(datasets_dir, file) for file in listdir(datasets_dir) if file.endswith('.csv')}
