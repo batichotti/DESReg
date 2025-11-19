@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,knn,Minkowski,0.3151
+mean,worst,cluster,Minkowski,0.3282
+median,best,knn,Cosine,0.3113
+median,worst,cluster,Minkowski,0.3312
+std,best,knn,Cityblock,0.0427
+std,worst,knn,Canberra,0.0499
+duration,best,knn,Chebyshev,234.0027
+duration,worst,knn,Canberra,538.6212

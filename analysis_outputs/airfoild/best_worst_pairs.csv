@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,knn,Canberra,2699212.4667
+mean,worst,cluster,Cityblock,6436217.7181
+median,best,knn,Canberra,2786872.5439
+median,worst,knn,Cityblock,4309523.7348
+std,best,knn,Canberra,527463.46
+std,worst,cluster,Cityblock,9792964.4181
+duration,best,knn,Chebyshev,203.3743
+duration,worst,knn,Canberra,473.6145

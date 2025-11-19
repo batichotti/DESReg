@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,knn,Cosine,1.7486
+mean,worst,output_profiles,Braycurtis,2.1433
+median,best,knn,Cosine,0.5827
+median,worst,output_profiles,Braycurtis,0.9361
+std,best,knn,Cosine,2.7625
+std,worst,output_profiles,Braycurtis,3.3243
+duration,best,knn,Cityblock,120.3626
+duration,worst,cluster,Chebyshev,226.381

@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,output_profiles,Chebyshev,0.1817
+mean,worst,cluster,Minkowski,0.1919
+median,best,cluster,Sqeuclidean,0.1534
+median,worst,output_profiles,Cosine,0.169
+std,best,output_profiles,Cosine,0.0752
+std,worst,knn,Chebyshev,0.0834
+duration,best,knn,Sqeuclidean,51.0911
+duration,worst,cluster,Cityblock,201.2077

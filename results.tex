@@ -1,246 +1,293 @@
-\begin{tabular}{lllrrrrr}
+\small
+\begin{longtable}{@{}llrrrrrr@{}}
+\caption{Resultados dos experimentos com diferentes datasets, competências e distâncias} \label{tab:results} \\
 \toprule
-dataset & competence & distance & mean & median & std & cv & duration \\
+\textbf{Dataset} & \textbf{Competence Region} & \textbf{Distance} & \textbf{Mean} & \textbf{Median} & \textbf{Standard Deviation} & \textbf{Duration (s)} \\
 \midrule
-airfoild & knn & Braycurtis & 4914969.638486 & 4284655.322900 & 2371960.716153 & 48.259926 & 263.391828 \\
-airfoild & cluster & Braycurtis & 4633825.790640 & 3982014.491315 & 1864126.974007 & 40.228681 & 444.358380 \\
-airfoild & output_profiles & Braycurtis & 4539915.169102 & 3967343.462570 & 2598571.412348 & 57.238325 & 355.744272 \\
-airfoild & knn & Canberra & 2699212.466798 & 2786872.543941 & 527463.460004 & 19.541384 & 473.614526 \\
-airfoild & cluster & Canberra & 3273880.678669 & 3039965.747518 & 693486.706754 & 21.182406 & 466.203375 \\
-airfoild & output_profiles & Canberra & 3114371.039501 & 3077806.905350 & 582403.771028 & 18.700526 & 414.955001 \\
-airfoild & knn & Chebyshev & 4376222.764517 & 4099157.488895 & 1559875.818670 & 35.644342 & 203.374326 \\
-airfoild & cluster & Chebyshev & 4291705.143416 & 3712308.078021 & 1899856.865630 & 44.268113 & 453.335139 \\
-airfoild & output_profiles & Chebyshev & 4020255.716886 & 3808932.141827 & 1280287.639688 & 31.845925 & 361.842837 \\
-airfoild & knn & Cityblock & 4607785.121864 & 4309523.734809 & 1729457.939029 & 37.533390 & 216.176721 \\
-airfoild & cluster & Cityblock & 6436217.718174 & 3944265.412039 & 9792964.418185 & 152.154027 & 463.105011 \\
-airfoild & output_profiles & Cityblock & 3445004.253368 & 3420461.638669 & 741790.535207 & 21.532355 & 339.611793 \\
-airfoild & knn & Cosine & 4510633.522457 & 3602015.469247 & 2455746.479192 & 54.443494 & 312.852661 \\
-airfoild & cluster & Cosine & 6155488.740091 & 3887112.971886 & 8312598.955561 & 135.043687 & 462.002329 \\
-airfoild & output_profiles & Cosine & 3955571.914629 & 3429425.046615 & 2244636.113345 & 56.746184 & 378.653538 \\
-airfoild & knn & Euclidean & 4604785.415222 & 4040814.320036 & 1601957.228579 & 34.788966 & 250.674945 \\
-airfoild & cluster & Euclidean & 4786267.647068 & 3747575.063177 & 3040491.969125 & 63.525323 & 462.242462 \\
-airfoild & output_profiles & Euclidean & 3637239.472228 & 3529017.853485 & 910614.077798 & 25.035857 & 356.576723 \\
-airfoild & knn & Minkowski & 4224878.532629 & 3901114.164334 & 1441900.754859 & 34.128810 & 248.185027 \\
-airfoild & cluster & Minkowski & 4536882.134286 & 3943616.797629 & 1841436.950946 & 40.588159 & 461.247927 \\
-airfoild & output_profiles & Minkowski & 3448438.231240 & 3364129.325186 & 689043.027209 & 19.981307 & 353.997415 \\
-airfoild & knn & Sqeuclidean & 4813432.716440 & 4040716.314150 & 2444494.098550 & 50.784840 & 222.379159 \\
-airfoild & cluster & Sqeuclidean & 4957259.837708 & 3977289.174064 & 3522512.627935 & 71.057656 & 462.183532 \\
-airfoild & output_profiles & Sqeuclidean & 3695387.236349 & 3717424.522909 & 856061.382801 & 23.165675 & 337.575521 \\
-concrete & knn & Braycurtis & 22.778001 & 19.527239 & 8.327158 & 36.557898 & 153.598010 \\
-concrete & cluster & Braycurtis & 23.899049 & 20.284274 & 8.151630 & 34.108595 & 245.297698 \\
-concrete & output_profiles & Braycurtis & 24.294045 & 21.548618 & 7.918826 & 32.595749 & 213.199820 \\
-concrete & knn & Canberra & 23.208983 & 20.089012 & 8.228567 & 35.454236 & 259.224737 \\
-concrete & cluster & Canberra & 24.362729 & 22.487136 & 7.977603 & 32.745111 & 263.168291 \\
-concrete & output_profiles & Canberra & 23.783698 & 21.663742 & 7.457132 & 31.353966 & 231.007075 \\
-concrete & knn & Chebyshev & 22.997551 & 20.019588 & 7.771981 & 33.794822 & 128.801701 \\
-concrete & cluster & Chebyshev & 24.814790 & 22.030459 & 8.566417 & 34.521417 & 261.695894 \\
-concrete & output_profiles & Chebyshev & 23.786192 & 20.222257 & 7.474879 & 31.425285 & 199.069525 \\
-concrete & knn & Cityblock & 22.505775 & 20.070935 & 7.813289 & 34.716818 & 134.884497 \\
-concrete & cluster & Cityblock & 24.170813 & 21.306656 & 8.773789 & 36.299106 & 267.772411 \\
-concrete & output_profiles & Cityblock & 23.556603 & 20.359057 & 7.657541 & 32.506983 & 196.405934 \\
-concrete & knn & Cosine & 23.223637 & 20.550387 & 7.814929 & 33.650754 & 176.958138 \\
-concrete & cluster & Cosine & 24.475270 & 21.916343 & 8.242945 & 33.678670 & 271.401041 \\
-concrete & output_profiles & Cosine & 24.889264 & 22.260871 & 8.240400 & 33.108251 & 218.797831 \\
-concrete & knn & Euclidean & 23.447182 & 20.808454 & 7.760016 & 33.095730 & 150.640054 \\
-concrete & cluster & Euclidean & 24.368857 & 20.863868 & 8.486378 & 34.824684 & 258.930830 \\
-concrete & output_profiles & Euclidean & 24.118497 & 20.904643 & 8.140212 & 33.750909 & 180.715126 \\
-concrete & knn & Minkowski & 22.744362 & 20.347771 & 8.088961 & 35.564685 & 136.203674 \\
-concrete & cluster & Minkowski & 23.888031 & 21.693183 & 7.993740 & 33.463369 & 243.849149 \\
-concrete & output_profiles & Minkowski & 24.294031 & 22.049345 & 8.250894 & 33.962637 & 193.414912 \\
-concrete & knn & Sqeuclidean & 23.955013 & 21.538335 & 7.461783 & 31.149150 & 135.096244 \\
-concrete & cluster & Sqeuclidean & 23.318022 & 20.855524 & 8.189752 & 35.121986 & 243.907155 \\
-concrete & output_profiles & Sqeuclidean & 24.385402 & 22.455305 & 7.733557 & 31.713880 & 187.194144 \\
-housing & knn & Braycurtis & 0.190544 & 0.159333 & 0.082714 & 43.409189 & 57.825649 \\
-housing & cluster & Braycurtis & 0.191774 & 0.154190 & 0.082881 & 43.218206 & 76.347179 \\
-housing & output_profiles & Braycurtis & 0.185517 & 0.154254 & 0.079533 & 42.870869 & 69.906090 \\
-housing & knn & Canberra & 0.185099 & 0.168992 & 0.078383 & 42.346605 & 67.507360 \\
-housing & cluster & Canberra & 0.183675 & 0.163493 & 0.079378 & 43.216627 & 77.960759 \\
-housing & output_profiles & Canberra & 0.182915 & 0.160569 & 0.079740 & 43.593928 & 76.152192 \\
-housing & knn & Chebyshev & 0.189416 & 0.161527 & 0.083425 & 44.043480 & 52.276936 \\
-housing & cluster & Chebyshev & 0.190491 & 0.158275 & 0.083351 & 43.755671 & 79.084464 \\
-housing & output_profiles & Chebyshev & 0.181726 & 0.154030 & 0.078733 & 43.325047 & 67.587456 \\
-housing & knn & Cityblock & 0.189403 & 0.160319 & 0.081934 & 43.259170 & 55.422639 \\
-housing & cluster & Cityblock & 0.191085 & 0.155076 & 0.081736 & 42.774501 & 201.207764 \\
-housing & output_profiles & Cityblock & 0.186124 & 0.155071 & 0.081104 & 43.575127 & 63.726389 \\
-housing & knn & Cosine & 0.182112 & 0.162947 & 0.078716 & 43.224008 & 57.098341 \\
-housing & cluster & Cosine & 0.188290 & 0.161381 & 0.079734 & 42.346221 & 75.277139 \\
-housing & output_profiles & Cosine & 0.182229 & 0.169073 & 0.075234 & 41.285405 & 72.277420 \\
-housing & knn & Euclidean & 0.189034 & 0.158819 & 0.078747 & 41.657498 & 55.299959 \\
-housing & cluster & Euclidean & 0.189066 & 0.157664 & 0.081065 & 42.876696 & 78.047131 \\
-housing & output_profiles & Euclidean & 0.190160 & 0.155547 & 0.082850 & 43.568630 & 68.288600 \\
-housing & knn & Minkowski & 0.191039 & 0.159545 & 0.081194 & 42.501291 & 55.484960 \\
-housing & cluster & Minkowski & 0.191903 & 0.161249 & 0.079112 & 41.225035 & 73.912884 \\
-housing & output_profiles & Minkowski & 0.181750 & 0.162171 & 0.078522 & 43.202983 & 66.875903 \\
-housing & knn & Sqeuclidean & 0.188031 & 0.161000 & 0.082375 & 43.808995 & 51.091166 \\
-housing & cluster & Sqeuclidean & 0.190496 & 0.153413 & 0.081023 & 42.532760 & 77.805848 \\
-housing & output_profiles & Sqeuclidean & 0.188097 & 0.163539 & 0.076983 & 40.927115 & 69.426272 \\
-liver & knn & Braycurtis & 9.574256 & 8.655898 & 4.149371 & 43.338834 & 38.445221 \\
-liver & cluster & Braycurtis & 9.627624 & 8.263655 & 4.242694 & 44.067925 & 44.699012 \\
-liver & output_profiles & Braycurtis & 9.901462 & 8.548432 & 4.056386 & 40.967551 & 41.981445 \\
-liver & knn & Canberra & 9.677770 & 8.323249 & 4.118380 & 42.555056 & 46.429182 \\
-liver & cluster & Canberra & 9.677969 & 8.368376 & 4.242295 & 43.834554 & 50.388415 \\
-liver & output_profiles & Canberra & 10.032545 & 8.499517 & 4.331871 & 43.178185 & 47.952387 \\
-liver & knn & Chebyshev & 9.474890 & 8.143028 & 4.178289 & 44.098553 & 35.984945 \\
-liver & cluster & Chebyshev & 9.556795 & 8.094704 & 4.030610 & 42.175329 & 48.872818 \\
-liver & output_profiles & Chebyshev & 9.664816 & 8.189660 & 4.316011 & 44.656935 & 43.391614 \\
-liver & knn & Cityblock & 9.579826 & 8.427877 & 4.167736 & 43.505340 & 36.159896 \\
-liver & cluster & Cityblock & 9.588327 & 7.944976 & 4.276523 & 44.601346 & 48.191722 \\
-liver & output_profiles & Cityblock & 9.580029 & 8.045269 & 4.311589 & 45.006011 & 44.617696 \\
-liver & knn & Cosine & 9.742684 & 8.510940 & 4.181855 & 42.923027 & 39.821617 \\
-liver & cluster & Cosine & 9.669724 & 8.254003 & 4.152593 & 42.944278 & 50.392483 \\
-liver & output_profiles & Cosine & 9.788947 & 8.151864 & 4.195257 & 42.857086 & 45.730107 \\
-liver & knn & Euclidean & 9.869574 & 8.452702 & 4.017890 & 40.709862 & 38.044916 \\
-liver & cluster & Euclidean & 9.658504 & 8.285576 & 4.141275 & 42.876980 & 49.623827 \\
-liver & output_profiles & Euclidean & 9.634236 & 8.179807 & 4.430418 & 45.986188 & 44.586376 \\
-liver & knn & Minkowski & 9.661166 & 8.480735 & 4.237490 & 43.861059 & 35.770848 \\
-liver & cluster & Minkowski & 9.588540 & 8.269386 & 4.044132 & 42.176727 & 46.236505 \\
-liver & output_profiles & Minkowski & 9.301067 & 7.943776 & 4.337501 & 46.634443 & 46.245704 \\
-liver & knn & Sqeuclidean & 9.907883 & 8.648490 & 4.114237 & 41.524882 & 35.761335 \\
-liver & cluster & Sqeuclidean & 9.733868 & 8.162438 & 4.349738 & 44.686630 & 47.583963 \\
-liver & output_profiles & Sqeuclidean & 9.784821 & 8.393446 & 4.394104 & 44.907350 & 44.497692 \\
-real_estate & knn & Braycurtis & 36.148049 & 19.421899 & 38.366009 & 106.135767 & 60.921280 \\
-real_estate & cluster & Braycurtis & 36.901291 & 20.689965 & 39.208853 & 106.253337 & 80.469939 \\
-real_estate & output_profiles & Braycurtis & 37.995638 & 24.157250 & 36.884773 & 97.076336 & 75.912895 \\
-real_estate & knn & Canberra & 37.992247 & 30.354246 & 36.605151 & 96.349003 & 74.695893 \\
-real_estate & cluster & Canberra & 37.066150 & 18.872758 & 37.863300 & 102.150614 & 86.110732 \\
-real_estate & output_profiles & Canberra & 37.039892 & 25.117204 & 36.867891 & 99.535631 & 78.253161 \\
-real_estate & knn & Chebyshev & 35.835684 & 19.110607 & 36.744458 & 102.535948 & 55.931220 \\
-real_estate & cluster & Chebyshev & 36.310816 & 20.360248 & 36.848484 & 101.480736 & 85.120768 \\
-real_estate & output_profiles & Chebyshev & 35.854101 & 19.544066 & 36.894645 & 102.902160 & 83.557532 \\
-real_estate & knn & Cityblock & 35.790748 & 18.644381 & 37.541079 & 104.890458 & 58.858077 \\
-real_estate & cluster & Cityblock & 37.442792 & 19.785906 & 38.524065 & 102.887801 & 88.315656 \\
-real_estate & output_profiles & Cityblock & 36.282036 & 18.060954 & 38.560612 & 106.280179 & 79.736104 \\
-real_estate & knn & Cosine & 36.069182 & 18.062850 & 39.262491 & 108.853288 & 66.297950 \\
-real_estate & cluster & Cosine & 36.669600 & 21.598931 & 38.694722 & 105.522618 & 83.191983 \\
-real_estate & output_profiles & Cosine & 37.537933 & 19.369714 & 38.959774 & 103.787746 & 81.020259 \\
-real_estate & knn & Euclidean & 35.924943 & 18.562529 & 36.606488 & 101.897136 & 57.818142 \\
-real_estate & cluster & Euclidean & 37.017014 & 20.119253 & 38.740803 & 104.656748 & 85.287766 \\
-real_estate & output_profiles & Euclidean & 36.543070 & 19.079875 & 37.667385 & 103.076683 & 74.971714 \\
-real_estate & knn & Minkowski & 36.614507 & 19.545280 & 39.468804 & 107.795537 & 57.005696 \\
-real_estate & cluster & Minkowski & 36.144893 & 20.743901 & 37.630982 & 104.111478 & 81.310942 \\
-real_estate & output_profiles & Minkowski & 36.150857 & 17.593653 & 38.802145 & 107.333954 & 73.102253 \\
-real_estate & knn & Sqeuclidean & 36.048127 & 17.487252 & 38.631785 & 107.167247 & 59.095782 \\
-real_estate & cluster & Sqeuclidean & 36.679905 & 22.112774 & 37.793897 & 103.037064 & 83.051953 \\
-real_estate & output_profiles & Sqeuclidean & 37.019229 & 18.086850 & 40.804685 & 110.225647 & 72.350438 \\
-stock & knn & Braycurtis & 1.852041 & 0.650235 & 2.883650 & 155.701224 & 144.034418 \\
-stock & cluster & Braycurtis & 1.935432 & 0.784305 & 2.981296 & 154.037779 & 214.102861 \\
-stock & output_profiles & Braycurtis & 2.143341 & 0.936101 & 3.324388 & 155.103131 & 168.301050 \\
-stock & knn & Canberra & 1.856481 & 0.648563 & 2.952334 & 159.028485 & 195.612201 \\
-stock & cluster & Canberra & 2.028750 & 0.863337 & 3.117977 & 153.689589 & 218.581601 \\
-stock & output_profiles & Canberra & 2.123205 & 0.851410 & 3.280307 & 154.497867 & 186.954696 \\
-stock & knn & Chebyshev & 1.812571 & 0.671076 & 2.826165 & 155.920226 & 121.040963 \\
-stock & cluster & Chebyshev & 1.924743 & 0.846312 & 2.887783 & 150.034751 & 226.381048 \\
-stock & output_profiles & Chebyshev & 2.082092 & 0.841872 & 3.199537 & 153.669360 & 184.341433 \\
-stock & knn & Cityblock & 1.876377 & 0.675582 & 2.954019 & 157.432062 & 120.362683 \\
-stock & cluster & Cityblock & 1.898851 & 0.755833 & 2.872752 & 151.288930 & 208.867966 \\
-stock & output_profiles & Cityblock & 2.062473 & 0.783332 & 3.146743 & 152.571322 & 169.045502 \\
-stock & knn & Cosine & 1.748699 & 0.582712 & 2.762530 & 157.976305 & 153.180936 \\
-stock & cluster & Cosine & 1.811335 & 0.735187 & 2.880487 & 159.025643 & 213.363078 \\
-stock & output_profiles & Cosine & 2.005347 & 0.750154 & 3.121050 & 155.636439 & 189.785422 \\
-stock & knn & Euclidean & 1.831240 & 0.651968 & 2.853052 & 155.798887 & 130.444777 \\
-stock & cluster & Euclidean & 1.938860 & 0.804951 & 2.887886 & 148.947618 & 212.759569 \\
-stock & output_profiles & Euclidean & 2.062210 & 0.784295 & 3.200164 & 155.181300 & 170.325988 \\
-stock & knn & Minkowski & 1.894813 & 0.695532 & 3.053111 & 161.129962 & 127.560208 \\
-stock & cluster & Minkowski & 1.918622 & 0.822607 & 2.777929 & 144.787741 & 217.577735 \\
-stock & output_profiles & Minkowski & 2.113189 & 0.869812 & 3.266500 & 154.576806 & 172.182387 \\
-stock & knn & Sqeuclidean & 1.852651 & 0.682057 & 2.953658 & 159.428724 & 126.622349 \\
-stock & cluster & Sqeuclidean & 1.859815 & 0.704729 & 2.780802 & 149.520336 & 210.598551 \\
-stock & output_profiles & Sqeuclidean & 2.018153 & 0.749557 & 3.256880 & 161.379217 & 155.218237 \\
-student_marks & knn & Braycurtis & 1.980323 & 1.420501 & 1.561601 & 78.855854 & 11.065437 \\
-student_marks & cluster & Braycurtis & 2.021515 & 1.455145 & 1.609346 & 79.610914 & 8.961200 \\
-student_marks & output_profiles & Braycurtis & 2.242968 & 1.589420 & 1.693093 & 75.484487 & 10.118295 \\
-student_marks & knn & Canberra & 2.043745 & 1.547332 & 1.469713 & 71.912740 & 10.277247 \\
-student_marks & cluster & Canberra & 1.965766 & 1.351191 & 1.611743 & 81.990597 & 9.059382 \\
-student_marks & output_profiles & Canberra & 2.320209 & 1.735489 & 1.584732 & 68.301245 & 10.221307 \\
-student_marks & knn & Chebyshev & 1.918421 & 1.222873 & 1.631243 & 85.030483 & 9.912516 \\
-student_marks & cluster & Chebyshev & 2.010405 & 1.473273 & 1.485108 & 73.871063 & 8.865624 \\
-student_marks & output_profiles & Chebyshev & 2.260234 & 1.624655 & 1.683838 & 74.498406 & 10.003643 \\
-student_marks & knn & Cityblock & 1.854661 & 1.357773 & 1.361343 & 73.401200 & 9.950572 \\
-student_marks & cluster & Cityblock & 2.026621 & 1.516563 & 1.480983 & 73.076468 & 8.921907 \\
-student_marks & output_profiles & Cityblock & 2.224555 & 1.608100 & 1.603219 & 72.069212 & 10.036147 \\
-student_marks & knn & Cosine & 2.975732 & 2.467587 & 1.734354 & 58.283276 & 10.106848 \\
-student_marks & cluster & Cosine & 2.148992 & 1.755447 & 1.684720 & 78.395805 & 9.090623 \\
-student_marks & output_profiles & Cosine & 2.737432 & 2.154278 & 1.522004 & 55.599697 & 10.167072 \\
-student_marks & knn & Euclidean & 1.925561 & 1.309629 & 1.465763 & 76.121374 & 10.002467 \\
-student_marks & cluster & Euclidean & 2.017345 & 1.524577 & 1.631566 & 80.876887 & 9.256589 \\
-student_marks & output_profiles & Euclidean & 2.287732 & 1.727570 & 1.712127 & 74.839478 & 10.197922 \\
-student_marks & knn & Minkowski & 1.910488 & 1.355401 & 1.530294 & 80.099650 & 10.014183 \\
-student_marks & cluster & Minkowski & 1.962346 & 1.346433 & 1.545721 & 78.769042 & 9.234025 \\
-student_marks & output_profiles & Minkowski & 2.214982 & 1.518523 & 1.666158 & 75.222168 & 10.265244 \\
-student_marks & knn & Sqeuclidean & 1.882736 & 1.281165 & 1.564929 & 83.119917 & 9.981308 \\
-student_marks & cluster & Sqeuclidean & 2.079232 & 1.515006 & 1.562749 & 75.159917 & 9.335423 \\
-student_marks & output_profiles & Sqeuclidean & 2.011333 & 1.356365 & 1.613886 & 80.239628 & 10.464747 \\
-triazines & knn & Braycurtis & 0.015525 & 0.014023 & 0.009377 & 60.395011 & 18.291903 \\
-triazines & cluster & Braycurtis & 0.015251 & 0.013087 & 0.008126 & 53.283003 & 20.503824 \\
-triazines & output_profiles & Braycurtis & 0.016268 & 0.014138 & 0.010126 & 62.245291 & 23.261401 \\
-triazines & knn & Canberra & 0.015234 & 0.012927 & 0.008763 & 57.521246 & 19.196255 \\
-triazines & cluster & Canberra & 0.016034 & 0.012604 & 0.009563 & 59.641955 & 22.406399 \\
-triazines & output_profiles & Canberra & 0.016520 & 0.013751 & 0.010539 & 63.798620 & 24.488080 \\
-triazines & knn & Chebyshev & 0.015425 & 0.013572 & 0.008844 & 57.339492 & 18.271909 \\
-triazines & cluster & Chebyshev & 0.015515 & 0.013630 & 0.008115 & 52.302404 & 19.839161 \\
-triazines & output_profiles & Chebyshev & 0.015145 & 0.013513 & 0.007665 & 50.607805 & 22.832267 \\
-triazines & knn & Cityblock & 0.015284 & 0.012915 & 0.008837 & 57.816868 & 20.202906 \\
-triazines & cluster & Cityblock & 0.016146 & 0.013746 & 0.009743 & 60.343846 & 20.804749 \\
-triazines & output_profiles & Cityblock & 0.016299 & 0.013424 & 0.010055 & 61.687475 & 23.343939 \\
-triazines & knn & Cosine & 0.016219 & 0.013522 & 0.009622 & 59.324839 & 20.008720 \\
-triazines & cluster & Cosine & 0.015850 & 0.012665 & 0.009385 & 59.209912 & 21.732010 \\
-triazines & output_profiles & Cosine & 0.016115 & 0.013429 & 0.009530 & 59.133763 & 23.740478 \\
-triazines & knn & Euclidean & 0.016103 & 0.012815 & 0.009398 & 58.361785 & 19.024139 \\
-triazines & cluster & Euclidean & 0.015272 & 0.012515 & 0.009084 & 59.482858 & 20.097034 \\
-triazines & output_profiles & Euclidean & 0.015693 & 0.013091 & 0.009231 & 58.819798 & 23.483760 \\
-triazines & knn & Minkowski & 0.015258 & 0.013455 & 0.008378 & 54.908621 & 18.965203 \\
-triazines & cluster & Minkowski & 0.014954 & 0.012532 & 0.008914 & 59.605319 & 21.649969 \\
-triazines & output_profiles & Minkowski & 0.015769 & 0.013280 & 0.009139 & 57.953552 & 22.929598 \\
-triazines & knn & Sqeuclidean & 0.015763 & 0.013108 & 0.009033 & 57.308287 & 18.991491 \\
-triazines & cluster & Sqeuclidean & 0.015772 & 0.012988 & 0.008932 & 56.631817 & 20.718905 \\
-triazines & output_profiles & Sqeuclidean & 0.015692 & 0.012702 & 0.009547 & 60.840910 & 21.818513 \\
-wine_quality_red & knn & Braycurtis & 0.318876 & 0.321582 & 0.045799 & 14.362552 & 308.364084 \\
-wine_quality_red & cluster & Braycurtis & 0.322792 & 0.314251 & 0.045025 & 13.948623 & 514.594904 \\
-wine_quality_red & output_profiles & Braycurtis & 0.322546 & 0.321657 & 0.044449 & 13.780704 & 354.120024 \\
-wine_quality_red & knn & Canberra & 0.320808 & 0.319641 & 0.049969 & 15.575869 & 538.621290 \\
-wine_quality_red & cluster & Canberra & 0.322730 & 0.323541 & 0.046386 & 14.373028 & 524.415103 \\
-wine_quality_red & output_profiles & Canberra & 0.325467 & 0.328927 & 0.045498 & 13.979256 & 412.580715 \\
-wine_quality_red & knn & Chebyshev & 0.323178 & 0.319840 & 0.047592 & 14.726311 & 234.002796 \\
-wine_quality_red & cluster & Chebyshev & 0.323130 & 0.325978 & 0.043432 & 13.441166 & 514.536541 \\
-wine_quality_red & output_profiles & Chebyshev & 0.317380 & 0.315465 & 0.047372 & 14.925828 & 361.522716 \\
-wine_quality_red & knn & Cityblock & 0.316035 & 0.318622 & 0.042730 & 13.520772 & 240.116579 \\
-wine_quality_red & cluster & Cityblock & 0.326101 & 0.321698 & 0.045753 & 14.030201 & 518.013634 \\
-wine_quality_red & output_profiles & Cityblock & 0.321927 & 0.321865 & 0.044637 & 13.865630 & 332.367491 \\
-wine_quality_red & knn & Cosine & 0.316387 & 0.311377 & 0.043795 & 13.842209 & 350.869212 \\
-wine_quality_red & cluster & Cosine & 0.321032 & 0.320534 & 0.044251 & 13.783978 & 525.242261 \\
-wine_quality_red & output_profiles & Cosine & 0.323036 & 0.322693 & 0.047263 & 14.630764 & 376.653092 \\
-wine_quality_red & knn & Euclidean & 0.320803 & 0.316727 & 0.045408 & 14.154433 & 279.616328 \\
-wine_quality_red & cluster & Euclidean & 0.321479 & 0.315898 & 0.044251 & 13.764826 & 515.207135 \\
-wine_quality_red & output_profiles & Euclidean & 0.321577 & 0.317693 & 0.048293 & 15.017425 & 349.023633 \\
-wine_quality_red & knn & Minkowski & 0.315121 & 0.311396 & 0.043640 & 13.848700 & 277.943571 \\
-wine_quality_red & cluster & Minkowski & 0.328252 & 0.331275 & 0.046063 & 14.032968 & 512.439271 \\
-wine_quality_red & output_profiles & Minkowski & 0.324714 & 0.319077 & 0.044000 & 13.550525 & 356.348804 \\
-wine_quality_red & knn & Sqeuclidean & 0.317765 & 0.318150 & 0.045528 & 14.327496 & 248.272030 \\
-wine_quality_red & cluster & Sqeuclidean & 0.325848 & 0.328378 & 0.046318 & 14.214481 & 508.571453 \\
-wine_quality_red & output_profiles & Sqeuclidean & 0.320884 & 0.323275 & 0.044369 & 13.827128 & 347.395709 \\
-yatch & knn & Braycurtis & 0.879671 & 0.797330 & 0.608549 & 69.179114 & 33.488860 \\
-yatch & cluster & Braycurtis & 0.902165 & 0.803067 & 0.624555 & 69.228488 & 39.280615 \\
-yatch & output_profiles & Braycurtis & 2.021335 & 0.939644 & 3.380636 & 167.247644 & 36.470350 \\
-yatch & knn & Canberra & 0.884142 & 0.812132 & 0.593826 & 67.164050 & 37.035772 \\
-yatch & cluster & Canberra & 0.982624 & 0.893202 & 0.653872 & 66.543499 & 38.620027 \\
-yatch & output_profiles & Canberra & 0.977323 & 0.806922 & 0.759449 & 77.706982 & 37.298823 \\
-yatch & knn & Chebyshev & 1.034828 & 0.788203 & 0.779569 & 75.333213 & 31.627257 \\
-yatch & cluster & Chebyshev & 0.894068 & 0.739258 & 0.614143 & 68.690844 & 39.103957 \\
-yatch & output_profiles & Chebyshev & 1.125747 & 0.944356 & 0.886614 & 78.757794 & 38.230199 \\
-yatch & knn & Cityblock & 1.007942 & 0.776677 & 0.714885 & 70.925152 & 30.876426 \\
-yatch & cluster & Cityblock & 0.875785 & 0.679704 & 0.620760 & 70.880370 & 41.152470 \\
-yatch & output_profiles & Cityblock & 1.242361 & 0.864014 & 1.689119 & 135.960476 & 36.532528 \\
-yatch & knn & Cosine & 0.953610 & 0.777344 & 0.657566 & 68.955371 & 33.761772 \\
-yatch & cluster & Cosine & 0.930463 & 0.737651 & 0.763721 & 82.079643 & 42.721067 \\
-yatch & output_profiles & Cosine & 1.108285 & 0.967760 & 0.829786 & 74.871127 & 40.789437 \\
-yatch & knn & Euclidean & 0.985467 & 0.866861 & 0.639758 & 64.919276 & 34.941270 \\
-yatch & cluster & Euclidean & 0.884741 & 0.695959 & 0.598912 & 67.693523 & 43.262022 \\
-yatch & output_profiles & Euclidean & 0.958153 & 0.930707 & 0.682932 & 71.275834 & 40.149440 \\
-yatch & knn & Minkowski & 1.070689 & 0.904012 & 0.738883 & 69.010037 & 33.032016 \\
-yatch & cluster & Minkowski & 0.893879 & 0.737806 & 0.694498 & 77.694889 & 44.642340 \\
-yatch & output_profiles & Minkowski & 1.054565 & 0.862235 & 0.841772 & 79.821689 & 38.856012 \\
-yatch & knn & Sqeuclidean & 1.338554 & 0.912951 & 1.730306 & 129.266859 & 31.125497 \\
-yatch & cluster & Sqeuclidean & 0.903617 & 0.792759 & 0.649668 & 71.896322 & 39.954636 \\
-yatch & output_profiles & Sqeuclidean & 0.884905 & 0.714038 & 0.633448 & 71.583746 & 37.645693 \\
+\endfirsthead
+
+\multicolumn{8}{c}
+{{\tablename\ \thetable{} -- continuation of previous page}} \\
+\toprule
+\textbf{Dataset} & \textbf{Competence Region} & \textbf{Distance} & \textbf{Mean} & \textbf{Median} & \textbf{Standard Deviation} & \textbf{Duration (s)} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{8}{r@{}}{\textit{Continues on the next page...}} \\
+\endfoot
+
 \bottomrule
-\end{tabular}
+\endlastfoot
+
+
+% Airfoild
+airfoild & knn & Braycurtis & 4914969.6384 & 4284655.3228 & 2371960.7161 & 263.3918 \\
+airfoild & cluster & Braycurtis & 4633825.7906 & 3982014.4913 & 1864126.9740 & 444.3583 \\
+airfoild & output\_profiles & Braycurtis & 4539915.1691 & 3967343.4625 & 2598571.4123 & 355.7442 \\
+airfoild & knn & Canberra & 2699212.4667 & 2786872.5439 & 527463.4600 & 473.6145 \\
+airfoild & cluster & Canberra & 3273880.6786 & 3039965.7475 & 693486.7067 & 466.2033 \\
+airfoild & output\_profiles & Canberra & 3114371.0395 & 3077806.9053 & 582403.7710 & 414.9550 \\
+airfoild & knn & Chebyshev & 4376222.7645 & 4099157.4888 & 1559875.8186 & 203.3743 \\
+airfoild & cluster & Chebyshev & 4291705.1434 & 3712308.0780 & 1899856.8656 & 453.3351 \\
+airfoild & output\_profiles & Chebyshev & 4020255.7168 & 3808932.1418 & 1280287.6396 & 361.8428 \\
+airfoild & knn & Cityblock & 4607785.1218 & 4309523.7348 & 1729457.9390 & 216.1767 \\
+airfoild & cluster & Cityblock & 6436217.7181 & 3944265.4120 & 9792964.4181 & 463.1050 \\
+airfoild & output\_profiles & Cityblock & 3445004.2533 & 3420461.6386 & 741790.5352 & 339.6117 \\
+airfoild & knn & Cosine & 4510633.5224 & 3602015.4692 & 2455746.4791 & 312.8526 \\
+airfoild & cluster & Cosine & 6155488.7400 & 3887112.9718 & 8312598.9555 & 462.0023 \\
+airfoild & output\_profiles & Cosine & 3955571.9146 & 3429425.0466 & 2244636.1133 & 378.6535 \\
+airfoild & knn & Euclidean & 4604785.4152 & 4040814.3200 & 1601957.2285 & 250.6749 \\
+airfoild & cluster & Euclidean & 4786267.6470 & 3747575.0631 & 3040491.9691 & 462.2424 \\
+airfoild & output\_profiles & Euclidean & 3637239.4722 & 3529017.8534 & 910614.0777 & 356.5767 \\
+airfoild & knn & Minkowski & 4224878.5326 & 3901114.1643 & 1441900.7548 & 248.1850 \\
+airfoild & cluster & Minkowski & 4536882.1342 & 3943616.7976 & 1841436.9509 & 461.2479 \\
+airfoild & output\_profiles & Minkowski & 3448438.2312 & 3364129.3251 & 689043.0272 & 353.9974 \\
+airfoild & knn & Sqeuclidean & 4813432.7164 & 4040716.3141 & 2444494.0985 & 222.3791 \\
+airfoild & cluster & Sqeuclidean & 4957259.8377 & 3977289.1740 & 3522512.6279 & 462.1835 \\
+airfoild & output\_profiles & Sqeuclidean & 3695387.2363 & 3717424.5229 & 856061.3828 & 337.5755 \\
+
+\midrule
+% Concrete
+concrete & knn & Braycurtis & 22.7780 & 19.5272 & 8.3271 & 153.5980 \\
+concrete & cluster & Braycurtis & 23.8990 & 20.2842 & 8.1516 & 245.2976 \\
+concrete & output\_profiles & Braycurtis & 24.2940 & 21.5486 & 7.9188 & 213.1998 \\
+concrete & knn & Canberra & 23.2089 & 20.0890 & 8.2285 & 259.2247 \\
+concrete & cluster & Canberra & 24.3627 & 22.4871 & 7.9776 & 263.1682 \\
+concrete & output\_profiles & Canberra & 23.7836 & 21.6637 & 7.4571 & 231.0070 \\
+concrete & knn & Chebyshev & 22.9975 & 20.0195 & 7.7719 & 128.8017 \\
+concrete & cluster & Chebyshev & 24.8147 & 22.0304 & 8.5664 & 261.6958 \\
+concrete & output\_profiles & Chebyshev & 23.7861 & 20.2222 & 7.4748 & 199.0695 \\
+concrete & knn & Cityblock & 22.5057 & 20.0709 & 7.8132 & 134.8844 \\
+concrete & cluster & Cityblock & 24.1708 & 21.3066 & 8.7737 & 267.7724 \\
+concrete & output\_profiles & Cityblock & 23.5566 & 20.3590 & 7.6575 & 196.4059 \\
+concrete & knn & Cosine & 23.2236 & 20.5503 & 7.8149 & 176.9581 \\
+concrete & cluster & Cosine & 24.4752 & 21.9163 & 8.2429 & 271.4010 \\
+concrete & output\_profiles & Cosine & 24.8892 & 22.2608 & 8.2403 & 218.7978 \\
+concrete & knn & Euclidean & 23.4471 & 20.8084 & 7.7600 & 150.6400 \\
+concrete & cluster & Euclidean & 24.3688 & 20.8638 & 8.4863 & 258.9308 \\
+concrete & output\_profiles & Euclidean & 24.1184 & 20.9046 & 8.1402 & 180.7151 \\
+concrete & knn & Minkowski & 22.7443 & 20.3477 & 8.0889 & 136.2036 \\
+concrete & cluster & Minkowski & 23.8880 & 21.6931 & 7.9937 & 243.8491 \\
+concrete & output\_profiles & Minkowski & 24.2940 & 22.0493 & 8.2508 & 193.4149 \\
+concrete & knn & Sqeuclidean & 23.9550 & 21.5383 & 7.4617 & 135.0962 \\
+concrete & cluster & Sqeuclidean & 23.3180 & 20.8555 & 8.1897 & 243.9071 \\
+concrete & output\_profiles & Sqeuclidean & 24.3854 & 22.4553 & 7.7335 & 187.1941 \\
+
+\midrule
+% Housing
+housing & knn & Braycurtis & 0.1905 & 0.1593 & 0.0827 & 57.8256 \\
+housing & cluster & Braycurtis & 0.1917 & 0.1541 & 0.0828 & 76.3471 \\
+housing & output\_profiles & Braycurtis & 0.1855 & 0.1542 & 0.0795 & 69.9060 \\
+housing & knn & Canberra & 0.1850 & 0.1689 & 0.0783 & 67.5073 \\
+housing & cluster & Canberra & 0.1836 & 0.1634 & 0.0793 & 77.9607 \\
+housing & output\_profiles & Canberra & 0.1829 & 0.1605 & 0.0797 & 76.1521 \\
+housing & knn & Chebyshev & 0.1894 & 0.1615 & 0.0834 & 52.2769 \\
+housing & cluster & Chebyshev & 0.1904 & 0.1582 & 0.0833 & 79.0844 \\
+housing & output\_profiles & Chebyshev & 0.1817 & 0.1540 & 0.0787 & 67.5874 \\
+housing & knn & Cityblock & 0.1894 & 0.1603 & 0.0819 & 55.4226 \\
+housing & cluster & Cityblock & 0.1910 & 0.1550 & 0.0817 & 201.2077 \\
+housing & output\_profiles & Cityblock & 0.1861 & 0.1550 & 0.0811 & 63.7263 \\
+housing & knn & Cosine & 0.1821 & 0.1629 & 0.0787 & 57.0983 \\
+housing & cluster & Cosine & 0.1882 & 0.1613 & 0.0797 & 75.2771 \\
+housing & output\_profiles & Cosine & 0.1822 & 0.1690 & 0.0752 & 72.2774 \\
+housing & knn & Euclidean & 0.1890 & 0.1588 & 0.0787 & 55.2999 \\
+housing & cluster & Euclidean & 0.1890 & 0.1576 & 0.0810 & 78.0471 \\
+housing & output\_profiles & Euclidean & 0.1901 & 0.1555 & 0.0828 & 68.2886 \\
+housing & knn & Minkowski & 0.1910 & 0.1595 & 0.0811 & 55.4849 \\
+housing & cluster & Minkowski & 0.1919 & 0.1612 & 0.0791 & 73.9128 \\
+housing & output\_profiles & Minkowski & 0.1817 & 0.1621 & 0.0785 & 66.8759 \\
+housing & knn & Sqeuclidean & 0.1880 & 0.1610 & 0.0823 & 51.0911 \\
+housing & cluster & Sqeuclidean & 0.1904 & 0.1534 & 0.0810 & 77.8058 \\
+housing & output\_profiles & Sqeuclidean & 0.1880 & 0.1635 & 0.0769 & 69.4262 \\
+
+\midrule
+% Liver
+liver & knn & Braycurtis & 9.5742 & 8.6558 & 4.1493 & 38.4452 \\
+liver & cluster & Braycurtis & 9.6276 & 8.2636 & 4.2426 & 44.6990 \\
+liver & output\_profiles & Braycurtis & 9.9014 & 8.5484 & 4.0563 & 41.9814 \\
+liver & knn & Canberra & 9.6777 & 8.3232 & 4.1183 & 46.4291 \\
+liver & cluster & Canberra & 9.6779 & 8.3683 & 4.2422 & 50.3884 \\
+liver & output\_profiles & Canberra & 10.0325 & 8.4995 & 4.3318 & 47.9523 \\
+liver & knn & Chebyshev & 9.4748 & 8.1430 & 4.1782 & 35.9849 \\
+liver & cluster & Chebyshev & 9.5567 & 8.0947 & 4.0306 & 48.8728 \\
+liver & output\_profiles & Chebyshev & 9.6648 & 8.1896 & 4.3160 & 43.3916 \\
+liver & knn & Cityblock & 9.5798 & 8.4278 & 4.1677 & 36.1598 \\
+liver & cluster & Cityblock & 9.5883 & 7.9449 & 4.2765 & 48.1917 \\
+liver & output\_profiles & Cityblock & 9.5800 & 8.0452 & 4.3115 & 44.6176 \\
+liver & knn & Cosine & 9.7426 & 8.5109 & 4.1818 & 39.8216 \\
+liver & cluster & Cosine & 9.6697 & 8.2540 & 4.1525 & 50.3924 \\
+liver & output\_profiles & Cosine & 9.7889 & 8.1518 & 4.1952 & 45.7301 \\
+liver & knn & Euclidean & 9.8695 & 8.4527 & 4.0178 & 38.0449 \\
+liver & cluster & Euclidean & 9.6585 & 8.2855 & 4.1412 & 49.6238 \\
+liver & output\_profiles & Euclidean & 9.6342 & 8.1798 & 4.4304 & 44.5863 \\
+liver & knn & Minkowski & 9.6611 & 8.4807 & 4.2374 & 35.7708 \\
+liver & cluster & Minkowski & 9.5885 & 8.2693 & 4.0441 & 46.2365 \\
+liver & output\_profiles & Minkowski & 9.3010 & 7.9437 & 4.3375 & 46.2457 \\
+liver & knn & Sqeuclidean & 9.9078 & 8.6484 & 4.1142 & 35.7613 \\
+liver & cluster & Sqeuclidean & 9.7338 & 8.1624 & 4.3497 & 47.5839 \\
+liver & output\_profiles & Sqeuclidean & 9.7848 & 8.3934 & 4.3941 & 44.4976 \\
+
+\midrule
+% Real Estate
+real\_estate & knn & Braycurtis & 36.1480 & 19.4218 & 38.3660 & 60.9212 \\
+real\_estate & cluster & Braycurtis & 36.9012 & 20.6899 & 39.2088 & 80.4699 \\
+real\_estate & output\_profiles & Braycurtis & 37.9956 & 24.1572 & 36.8847 & 75.9128 \\
+real\_estate & knn & Canberra & 37.9922 & 30.3542 & 36.6051 & 74.6958 \\
+real\_estate & cluster & Canberra & 37.0661 & 18.8727 & 37.8632 & 86.1107 \\
+real\_estate & output\_profiles & Canberra & 37.0398 & 25.1172 & 36.8678 & 78.2531 \\
+real\_estate & knn & Chebyshev & 35.8356 & 19.1106 & 36.7444 & 55.9312 \\
+real\_estate & cluster & Chebyshev & 36.3108 & 20.3602 & 36.8484 & 85.1207 \\
+real\_estate & output\_profiles & Chebyshev & 35.8541 & 19.5440 & 36.8946 & 83.5575 \\
+real\_estate & knn & Cityblock & 35.7907 & 18.6443 & 37.5410 & 58.8580 \\
+real\_estate & cluster & Cityblock & 37.4427 & 19.7859 & 38.5240 & 88.3156 \\
+real\_estate & output\_profiles & Cityblock & 36.2820 & 18.0609 & 38.5606 & 79.7361 \\
+real\_estate & knn & Cosine & 36.0691 & 18.0628 & 39.2624 & 66.2979 \\
+real\_estate & cluster & Cosine & 36.6695 & 21.5989 & 38.6947 & 83.1919 \\
+real\_estate & output\_profiles & Cosine & 37.5379 & 19.3697 & 38.9597 & 81.0202 \\
+real\_estate & knn & Euclidean & 35.9249 & 18.5625 & 36.6064 & 57.8181 \\
+real\_estate & cluster & Euclidean & 37.0170 & 20.1192 & 38.7408 & 85.2877 \\
+real\_estate & output\_profiles & Euclidean & 36.5430 & 19.0798 & 37.6673 & 74.9717 \\
+real\_estate & knn & Minkowski & 36.6145 & 19.5452 & 39.4688 & 57.0056 \\
+real\_estate & cluster & Minkowski & 36.1448 & 20.7439 & 37.6309 & 81.3109 \\
+real\_estate & output\_profiles & Minkowski & 36.1508 & 17.5936 & 38.8021 & 73.1022 \\
+real\_estate & knn & Sqeuclidean & 36.0481 & 17.4872 & 38.6317 & 59.0957 \\
+real\_estate & cluster & Sqeuclidean & 36.6799 & 22.1127 & 37.7938 & 83.0519 \\
+real\_estate & output\_profiles & Sqeuclidean & 37.0192 & 18.0868 & 40.8046 & 72.3504 \\
+
+\midrule
+% Stock
+stock & knn & Braycurtis & 1.8520 & 0.6502 & 2.8836 & 144.0344 \\
+stock & cluster & Braycurtis & 1.9354 & 0.7843 & 2.9812 & 214.1028 \\
+stock & output\_profiles & Braycurtis & 2.1433 & 0.9361 & 3.3243 & 168.3010 \\
+stock & knn & Canberra & 1.8564 & 0.6485 & 2.9523 & 195.6122 \\
+stock & cluster & Canberra & 2.0287 & 0.8633 & 3.1179 & 218.5816 \\
+stock & output\_profiles & Canberra & 2.1232 & 0.8514 & 3.2803 & 186.9546 \\
+stock & knn & Chebyshev & 1.8125 & 0.6710 & 2.8261 & 121.0409 \\
+stock & cluster & Chebyshev & 1.9247 & 0.8463 & 2.8877 & 226.3810 \\
+stock & output\_profiles & Chebyshev & 2.0820 & 0.8418 & 3.1995 & 184.3414 \\
+stock & knn & Cityblock & 1.8763 & 0.6755 & 2.9540 & 120.3626 \\
+stock & cluster & Cityblock & 1.8988 & 0.7558 & 2.8727 & 208.8679 \\
+stock & output\_profiles & Cityblock & 2.0624 & 0.7833 & 3.1467 & 169.0455 \\
+stock & knn & Cosine & 1.7486 & 0.5827 & 2.7625 & 153.1809 \\
+stock & cluster & Cosine & 1.8113 & 0.7351 & 2.8804 & 213.3630 \\
+stock & output\_profiles & Cosine & 2.0053 & 0.7501 & 3.1210 & 189.7854 \\
+stock & knn & Euclidean & 1.8312 & 0.6519 & 2.8530 & 130.4447 \\
+stock & cluster & Euclidean & 1.9388 & 0.8049 & 2.8878 & 212.7595 \\
+stock & output\_profiles & Euclidean & 2.0622 & 0.7842 & 3.2001 & 170.3259 \\
+stock & knn & Minkowski & 1.8948 & 0.6955 & 3.0531 & 127.5602 \\
+stock & cluster & Minkowski & 1.9186 & 0.8226 & 2.7779 & 217.5777 \\
+stock & output\_profiles & Minkowski & 2.1131 & 0.8698 & 3.2664 & 172.1823 \\
+stock & knn & Sqeuclidean & 1.8526 & 0.6820 & 2.9536 & 126.6223 \\
+stock & cluster & Sqeuclidean & 1.8598 & 0.7047 & 2.7808 & 210.5985 \\
+stock & output\_profiles & Sqeuclidean & 2.0181 & 0.7495 & 3.2568 & 155.2182 \\
+
+\midrule
+% Student Marks
+student\_marks & knn & Braycurtis & 1.9803 & 1.4205 & 1.5616 & 11.0654 \\
+student\_marks & cluster & Braycurtis & 2.0215 & 1.4551 & 1.6093 & 8.9611 \\
+student\_marks & output\_profiles & Braycurtis & 2.2429 & 1.5894 & 1.6930 & 10.1182 \\
+student\_marks & knn & Canberra & 2.0437 & 1.5473 & 1.4697 & 10.2772 \\
+student\_marks & cluster & Canberra & 1.9657 & 1.3511 & 1.6117 & 9.0593 \\
+student\_marks & output\_profiles & Canberra & 2.3202 & 1.7354 & 1.5847 & 10.2213 \\
+student\_marks & knn & Chebyshev & 1.9184 & 1.2228 & 1.6312 & 9.9125 \\
+student\_marks & cluster & Chebyshev & 2.0104 & 1.4732 & 1.4851 & 8.8656 \\
+student\_marks & output\_profiles & Chebyshev & 2.2602 & 1.6246 & 1.6838 & 10.0036 \\
+student\_marks & knn & Cityblock & 1.8546 & 1.3577 & 1.3613 & 9.9505 \\
+student\_marks & cluster & Cityblock & 2.0266 & 1.5165 & 1.4809 & 8.9219 \\
+student\_marks & output\_profiles & Cityblock & 2.2245 & 1.6080 & 1.6032 & 10.0361 \\
+student\_marks & knn & Cosine & 2.9757 & 2.4675 & 1.7343 & 10.1068 \\
+student\_marks & cluster & Cosine & 2.1489 & 1.7554 & 1.6847 & 9.0906 \\
+student\_marks & output\_profiles & Cosine & 2.7374 & 2.1542 & 1.5220 & 10.1670 \\
+student\_marks & knn & Euclidean & 1.9255 & 1.3096 & 1.4657 & 10.0024 \\
+student\_marks & cluster & Euclidean & 2.0173 & 1.5245 & 1.6315 & 9.2565 \\
+student\_marks & output\_profiles & Euclidean & 2.2877 & 1.7275 & 1.7121 & 10.1979 \\
+student\_marks & knn & Minkowski & 1.9104 & 1.3554 & 1.5302 & 10.0141 \\
+student\_marks & cluster & Minkowski & 1.9623 & 1.3464 & 1.5457 & 9.2340 \\
+student\_marks & output\_profiles & Minkowski & 2.2149 & 1.5185 & 1.6661 & 10.2652 \\
+student\_marks & knn & Sqeuclidean & 1.8827 & 1.2811 & 1.5649 & 9.9813 \\
+student\_marks & cluster & Sqeuclidean & 2.0792 & 1.5150 & 1.5627 & 9.3354 \\
+student\_marks & output\_profiles & Sqeuclidean & 2.0113 & 1.3563 & 1.6138 & 10.4647 \\
+
+\midrule
+% Triazines
+triazines & knn & Braycurtis & 0.0155 & 0.0140 & 0.0093 & 18.2919 \\
+triazines & cluster & Braycurtis & 0.0152 & 0.0130 & 0.0081 & 20.5038 \\
+triazines & output\_profiles & Braycurtis & 0.0162 & 0.0141 & 0.0101 & 23.2614 \\
+triazines & knn & Canberra & 0.0152 & 0.0129 & 0.0087 & 19.1962 \\
+triazines & cluster & Canberra & 0.0160 & 0.0126 & 0.0095 & 22.4063 \\
+triazines & output\_profiles & Canberra & 0.0165 & 0.0137 & 0.0105 & 24.4880 \\
+triazines & knn & Chebyshev & 0.0154 & 0.0135 & 0.0088 & 18.2719 \\
+triazines & cluster & Chebyshev & 0.0155 & 0.0136 & 0.0081 & 19.8391 \\
+triazines & output\_profiles & Chebyshev & 0.0151 & 0.0135 & 0.0076 & 22.8322 \\
+triazines & knn & Cityblock & 0.0152 & 0.0129 & 0.0088 & 20.2029 \\
+triazines & cluster & Cityblock & 0.0161 & 0.0137 & 0.0097 & 20.8047 \\
+triazines & output\_profiles & Cityblock & 0.0162 & 0.0134 & 0.0100 & 23.3439 \\
+triazines & knn & Cosine & 0.0162 & 0.0135 & 0.0096 & 20.0087 \\
+triazines & cluster & Cosine & 0.0158 & 0.0126 & 0.0093 & 21.7320 \\
+triazines & output\_profiles & Cosine & 0.0161 & 0.0134 & 0.0095 & 23.7404 \\
+triazines & knn & Euclidean & 0.0161 & 0.0128 & 0.0093 & 19.0241 \\
+triazines & cluster & Euclidean & 0.0152 & 0.0125 & 0.0090 & 20.0970 \\
+triazines & output\_profiles & Euclidean & 0.0156 & 0.0130 & 0.0092 & 23.4837 \\
+triazines & knn & Minkowski & 0.0152 & 0.0134 & 0.0083 & 18.9652 \\
+triazines & cluster & Minkowski & 0.0149 & 0.0125 & 0.0089 & 21.6499 \\
+triazines & output\_profiles & Minkowski & 0.0157 & 0.0132 & 0.0091 & 22.9295 \\
+triazines & knn & Sqeuclidean & 0.0157 & 0.0131 & 0.0090 & 18.9914 \\
+triazines & cluster & Sqeuclidean & 0.0157 & 0.0129 & 0.0089 & 20.7189 \\
+triazines & output\_profiles & Sqeuclidean & 0.0156 & 0.0127 & 0.0095 & 21.8185 \\
+
+\midrule
+% Wine Quality Red
+wine\_quality\_red & knn & Braycurtis & 0.3188 & 0.3215 & 0.0457 & 308.3640 \\
+wine\_quality\_red & cluster & Braycurtis & 0.3227 & 0.3142 & 0.0450 & 514.5949 \\
+wine\_quality\_red & output\_profiles & Braycurtis & 0.3225 & 0.3216 & 0.0444 & 354.1200 \\
+wine\_quality\_red & knn & Canberra & 0.3208 & 0.3196 & 0.0499 & 538.6212 \\
+wine\_quality\_red & cluster & Canberra & 0.3227 & 0.3235 & 0.0463 & 524.4151 \\
+wine\_quality\_red & output\_profiles & Canberra & 0.3254 & 0.3289 & 0.0454 & 412.5807 \\
+wine\_quality\_red & knn & Chebyshev & 0.3231 & 0.3198 & 0.0475 & 234.0027 \\
+wine\_quality\_red & cluster & Chebyshev & 0.3231 & 0.3259 & 0.0434 & 514.5365 \\
+wine\_quality\_red & output\_profiles & Chebyshev & 0.3173 & 0.3154 & 0.0473 & 361.5227 \\
+wine\_quality\_red & knn & Cityblock & 0.3160 & 0.3186 & 0.0427 & 240.1165 \\
+wine\_quality\_red & cluster & Cityblock & 0.3261 & 0.3216 & 0.0457 & 518.0136 \\
+wine\_quality\_red & output\_profiles & Cityblock & 0.3219 & 0.3218 & 0.0446 & 332.3674 \\
+wine\_quality\_red & knn & Cosine & 0.3163 & 0.3113 & 0.0437 & 350.8692 \\
+wine\_quality\_red & cluster & Cosine & 0.3210 & 0.3205 & 0.0442 & 525.2422 \\
+wine\_quality\_red & output\_profiles & Cosine & 0.3230 & 0.3226 & 0.0472 & 376.6530 \\
+wine\_quality\_red & knn & Euclidean & 0.3208 & 0.3167 & 0.0454 & 279.6163 \\
+wine\_quality\_red & cluster & Euclidean & 0.3214 & 0.3158 & 0.0442 & 515.2071 \\
+wine\_quality\_red & output\_profiles & Euclidean & 0.3215 & 0.3176 & 0.0482 & 349.0236 \\
+wine\_quality\_red & knn & Minkowski & 0.3151 & 0.3113 & 0.0436 & 277.9435 \\
+wine\_quality\_red & cluster & Minkowski & 0.3282 & 0.3312 & 0.0460 & 512.4392 \\
+wine\_quality\_red & output\_profiles & Minkowski & 0.3247 & 0.3190 & 0.0440 & 356.3488 \\
+wine\_quality\_red & knn & Sqeuclidean & 0.3177 & 0.3181 & 0.0455 & 248.2720 \\
+wine\_quality\_red & cluster & Sqeuclidean & 0.3258 & 0.3283 & 0.0463 & 508.5714 \\
+wine\_quality\_red & output\_profiles & Sqeuclidean & 0.3208 & 0.3232 & 0.0443 & 347.3957 \\
+
+\midrule
+% Yatch
+yatch & knn & Braycurtis & 0.8796 & 0.7973 & 0.6085 & 33.4888 \\
+yatch & cluster & Braycurtis & 0.9021 & 0.8030 & 0.6245 & 39.2806 \\
+yatch & output\_profiles & Braycurtis & 2.0213 & 0.9396 & 3.3806 & 36.4703 \\
+yatch & knn & Canberra & 0.8841 & 0.8121 & 0.5938 & 37.0357 \\
+yatch & cluster & Canberra & 0.9826 & 0.8932 & 0.6538 & 38.6200 \\
+yatch & output\_profiles & Canberra & 0.9773 & 0.8069 & 0.7594 & 37.2988 \\
+yatch & knn & Chebyshev & 1.0348 & 0.7882 & 0.7795 & 31.6272 \\
+yatch & cluster & Chebyshev & 0.8940 & 0.7392 & 0.6141 & 39.1039 \\
+yatch & output\_profiles & Chebyshev & 1.1257 & 0.9443 & 0.8866 & 38.2301 \\
+yatch & knn & Cityblock & 1.0079 & 0.7766 & 0.7148 & 30.8764 \\
+yatch & cluster & Cityblock & 0.8757 & 0.6797 & 0.6207 & 41.1524 \\
+yatch & output\_profiles & Cityblock & 1.2423 & 0.8640 & 1.6891 & 36.5325 \\
+yatch & knn & Cosine & 0.9536 & 0.7773 & 0.6575 & 33.7617 \\
+yatch & cluster & Cosine & 0.9304 & 0.7376 & 0.7637 & 42.7210 \\
+yatch & output\_profiles & Cosine & 1.1082 & 0.9677 & 0.8297 & 40.7894 \\
+yatch & knn & Euclidean & 0.9854 & 0.8668 & 0.6397 & 34.9412 \\
+yatch & cluster & Euclidean & 0.8847 & 0.6959 & 0.5989 & 43.2620 \\
+yatch & output\_profiles & Euclidean & 0.9581 & 0.9307 & 0.6829 & 40.1494 \\
+yatch & knn & Minkowski & 1.0706 & 0.9040 & 0.7388 & 33.0320 \\
+yatch & cluster & Minkowski & 0.8938 & 0.7378 & 0.6944 & 44.6423 \\
+yatch & output\_profiles & Minkowski & 1.0545 & 0.8622 & 0.8417 & 38.8560 \\
+yatch & knn & Sqeuclidean & 1.3385 & 0.9129 & 1.7303 & 31.1254 \\
+yatch & cluster & Sqeuclidean & 0.9036 & 0.7927 & 0.6496 & 39.9546 \\
+yatch & output\_profiles & Sqeuclidean & 0.8849 & 0.7140 & 0.6334 & 37.6456 \\
+
+\end{longtable}
