@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,cluster,Euclidean,5.2678
+mean,worst,output_profiles,Cosine,5.6569
+median,best,output_profiles,Canberra,5.1858
+median,worst,output_profiles,Cosine,5.6
+std,best,knn,Chebyshev,0.6659
+std,worst,output_profiles,Cosine,0.7905
+duration,best,knn,Chebyshev,1124.3353
+duration,worst,knn,Cosine,4678.3784

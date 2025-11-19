@@ -1,9 +1,9 @@
 metric,type,competence,distance,value
-mean,best,knn,Cityblock,1.8546
+mean,best,knn,Cityblock,1.8547
 mean,worst,knn,Cosine,2.9757
-median,best,knn,Chebyshev,1.2228
-median,worst,knn,Cosine,2.4675
+median,best,knn,Chebyshev,1.2229
+median,worst,knn,Cosine,2.4676
 std,best,knn,Cityblock,1.3613
-std,worst,knn,Cosine,1.7343
+std,worst,knn,Cosine,1.7344
 duration,best,cluster,Chebyshev,8.8656
 duration,worst,knn,Braycurtis,11.0654

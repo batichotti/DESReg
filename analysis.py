@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import glob
 
 sns.set_theme(style="whitegrid")
 
@@ -11,8 +12,9 @@ sns.set_theme(style="whitegrid")
 
 def load_dataset(path):
     df = pd.read_csv(path)
+    if 'cv' in df.columns:
+        df = df.drop(columns=['cv'])
     return df
-
 
 # -----------------------------------------------------------
 # 2. Estatísticas descritivas gerais
@@ -259,5 +261,33 @@ def analyze_dataset_by_group(path, group_column, output_dir="analysis_outputs"):
         print(f"\n✅ Análise concluída para o grupo '{group_name}'! Resultados salvos em: {group_output_dir}")
 
 
-# Exemplo de uso
+
+# # Remover as colunas 'fit_time' e 'predict_time' do arquivo 'metrics_results_abalone.csv'
+# abalone_df = pd.read_csv("metrics_results_abalone.csv")
+# abalone_df = abalone_df.drop(columns=["fit_time", "predict_time"], errors="ignore")
+# abalone_df.to_csv("metrics_results_abalone.csv", index=False)
+
+# Juntar todos os arquivos 'metrics_results*.csv' da pasta atual
+all_files = glob.glob("metrics_results*.csv")
+dfs = [pd.read_csv(f) for f in all_files]
+combined_df = pd.concat(dfs, ignore_index=True)
+
+combined_df = combined_df.sort_values(by=["dataset", "distance"])
+if 'cv' in combined_df.columns:
+        combined_df = combined_df.drop(columns=['cv'])
+
+# Remover linhas duplicadas
+combined_df = combined_df.drop_duplicates()
+
+# Salvar em CSV
+combined_df = combined_df.round(4)
+combined_df.to_csv("results.csv", index=False)
+
+# Salvar em LaTeX
+with open("results.tex", "w") as f:
+    latex_str = combined_df.to_latex(index=False)
+    latex_str = latex_str.replace('_', '\\_')
+    f.write(latex_str)
+    
+
 analyze_dataset_by_group("results.csv", group_column="dataset")

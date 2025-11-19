@@ -1,9 +1,9 @@
 metric,type,competence,distance,value
-mean,best,cluster,Minkowski,0.0149
+mean,best,cluster,Minkowski,0.015
 mean,worst,output_profiles,Canberra,0.0165
 median,best,cluster,Euclidean,0.0125
 median,worst,output_profiles,Braycurtis,0.0141
-std,best,output_profiles,Chebyshev,0.0076
+std,best,output_profiles,Chebyshev,0.0077
 std,worst,output_profiles,Canberra,0.0105
 duration,best,knn,Chebyshev,18.2719
-duration,worst,output_profiles,Canberra,24.488
+duration,worst,output_profiles,Canberra,24.4881

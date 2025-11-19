@@ -1,9 +1,9 @@
 metric,type,competence,distance,value
-mean,best,knn,Cityblock,22.5057
-mean,worst,output_profiles,Cosine,24.8892
+mean,best,knn,Cityblock,22.5058
+mean,worst,output_profiles,Cosine,24.8893
 median,best,knn,Braycurtis,19.5272
 median,worst,cluster,Canberra,22.4871
 std,best,output_profiles,Canberra,7.4571
-std,worst,cluster,Cityblock,8.7737
+std,worst,cluster,Cityblock,8.7738
 duration,best,knn,Chebyshev,128.8017
 duration,worst,cluster,Cosine,271.401
