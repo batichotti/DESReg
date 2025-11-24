@@ -1,0 +1,9 @@
+metric,type,competence,distance,value
+mean,best,knn,Cityblock,0.3452
+mean,worst,output_profiles,Chebyshev,0.3593
+median,best,knn,Cosine,0.3382
+median,worst,output_profiles,Chebyshev,0.3543
+std,best,cluster,Sqeuclidean,0.0333
+std,worst,output_profiles,Chebyshev,0.0387
+duration,best,knn,Chebyshev,1649.3185
+duration,worst,knn,Cosine,7134.2508

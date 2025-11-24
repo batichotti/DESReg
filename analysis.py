@@ -6,6 +6,9 @@ import glob
 
 sns.set_theme(style="whitegrid")
 
+# Definir paleta de cinza personalizada (escuro, médio, claro)
+CUSTOM_GRAY_PALETTE = ["#2b2b2b", "#7f7f7f", "#5e5e5e"]
+
 # -----------------------------------------------------------
 # 1. Carregar um único arquivo CSV
 # -----------------------------------------------------------
@@ -42,7 +45,7 @@ def grouped_statistics(df):
 
 def plot_boxplot_mean_by_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(8, 5))
-    sns.boxplot(data=df, x="competence", y="mean", palette="gray")
+    sns.boxplot(data=df, x="competence", y="mean", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Mean Distribution by Competence ({dataset_name})")
     plt.tight_layout()
     path = os.path.join(output_dir, f"{dataset_name}_boxplot_mean_by_competence.png")
@@ -52,7 +55,7 @@ def plot_boxplot_mean_by_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_mean_by_distance(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 5))
-    sns.boxplot(data=df, x="distance", y="mean", palette="gray")
+    sns.boxplot(data=df, x="distance", y="mean", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Mean Distribution by Distance ({dataset_name})")
     plt.tight_layout()
@@ -63,7 +66,7 @@ def plot_boxplot_mean_by_distance(df, output_dir, dataset_name):
 
 def plot_bar_mean_by_distance_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 6))
-    sns.barplot(data=df, x="distance", y="mean", hue="competence", palette="gray")
+    sns.barplot(data=df, x="distance", y="mean", hue="competence", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Mean by Distance and Competence ({dataset_name})")
     plt.tight_layout()
@@ -74,7 +77,7 @@ def plot_bar_mean_by_distance_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_median_by_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(8, 5))
-    sns.boxplot(data=df, x="competence", y="median", palette="gray")
+    sns.boxplot(data=df, x="competence", y="median", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Median Distribution by Competence ({dataset_name})")
     plt.tight_layout()
     path = os.path.join(output_dir, f"{dataset_name}_boxplot_median_by_competence.png")
@@ -84,7 +87,7 @@ def plot_boxplot_median_by_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_median_by_distance(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 5))
-    sns.boxplot(data=df, x="distance", y="median", palette="gray")
+    sns.boxplot(data=df, x="distance", y="median", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Median Distribution by Distance ({dataset_name})")
     plt.tight_layout()
@@ -95,7 +98,7 @@ def plot_boxplot_median_by_distance(df, output_dir, dataset_name):
 
 def plot_bar_median_by_distance_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 6))
-    sns.barplot(data=df, x="distance", y="median", hue="competence", palette="gray")
+    sns.barplot(data=df, x="distance", y="median", hue="competence", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Median by Distance and Competence ({dataset_name})")
     plt.tight_layout()
@@ -108,7 +111,7 @@ def plot_bar_median_by_distance_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_duration_by_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(8, 5))
-    sns.boxplot(data=df, x="competence", y="duration", palette="gray")
+    sns.boxplot(data=df, x="competence", y="duration", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Duration Distribution by Competence ({dataset_name})")
     plt.tight_layout()
     path = os.path.join(output_dir, f"{dataset_name}_boxplot_duration_by_competence.png")
@@ -118,7 +121,7 @@ def plot_boxplot_duration_by_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_duration_by_distance(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 5))
-    sns.boxplot(data=df, x="distance", y="duration", palette="gray")
+    sns.boxplot(data=df, x="distance", y="duration", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Duration Distribution by Distance ({dataset_name})")
     plt.tight_layout()
@@ -129,7 +132,7 @@ def plot_boxplot_duration_by_distance(df, output_dir, dataset_name):
 
 def plot_bar_duration_by_distance_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 6))
-    sns.barplot(data=df, x="distance", y="duration", hue="competence", palette="gray")
+    sns.barplot(data=df, x="distance", y="duration", hue="competence", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Duration by Distance and Competence ({dataset_name})")
     plt.tight_layout()
@@ -142,7 +145,7 @@ def plot_bar_duration_by_distance_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_std_by_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(8, 5))
-    sns.boxplot(data=df, x="competence", y="std", palette="gray")
+    sns.boxplot(data=df, x="competence", y="std", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Std Distribution by Competence ({dataset_name})")
     plt.tight_layout()
     path = os.path.join(output_dir, f"{dataset_name}_boxplot_std_by_competence.png")
@@ -152,7 +155,7 @@ def plot_boxplot_std_by_competence(df, output_dir, dataset_name):
 
 def plot_boxplot_std_by_distance(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 5))
-    sns.boxplot(data=df, x="distance", y="std", palette="gray")
+    sns.boxplot(data=df, x="distance", y="std", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Std Distribution by Distance ({dataset_name})")
     plt.tight_layout()
@@ -163,7 +166,7 @@ def plot_boxplot_std_by_distance(df, output_dir, dataset_name):
 
 def plot_bar_std_by_distance_competence(df, output_dir, dataset_name):
     plt.figure(figsize=(12, 6))
-    sns.barplot(data=df, x="distance", y="std", hue="competence", palette="gray")
+    sns.barplot(data=df, x="distance", y="std", hue="competence", palette=CUSTOM_GRAY_PALETTE)
     plt.xticks(rotation=45)
     plt.title(f"Std by Distance and Competence ({dataset_name})")
     plt.tight_layout()
@@ -318,7 +321,7 @@ for metric in metrics:
         data=metric_best_df,
         x="distance",
         order=DISTANCE_HEURISTICS_LIST,
-        palette="gray"
+        palette=CUSTOM_GRAY_PALETTE
     )
     plt.title(f"Frequency of Distance as Best ({metric})")
     plt.xticks(rotation=45)
@@ -332,7 +335,7 @@ for metric in metrics:
         data=metric_best_df,
         x="competence",
         order=COMPETENCE_REGION_LIST,
-        palette="gray"
+        palette=CUSTOM_GRAY_PALETTE
     )
     plt.title(f"Frequency of Competence as Best ({metric})")
     plt.tight_layout()
@@ -355,7 +358,7 @@ for metric in metrics:
         data=pair_counts,
         x="pair_label",
         y="count",
-        palette="gray"
+        palette=CUSTOM_GRAY_PALETTE
     )
     plt.title(f"Frequency of (Competence, Distance) Pairs as Best ({metric})")
     plt.xlabel("Pair (Competence | Distance)")
@@ -380,7 +383,7 @@ sns.barplot(
     y="count",
     hue="metric",
     order=DISTANCE_HEURISTICS_LIST,
-    palette="gray"
+    palette=CUSTOM_GRAY_PALETTE
 )
 plt.title("Frequency of Distance as Best (Mean, Median, Std)")
 plt.xticks(rotation=45)
@@ -400,7 +403,7 @@ sns.barplot(
     y="count",
     hue="metric",
     order=COMPETENCE_REGION_LIST,
-    palette="gray"
+    palette=CUSTOM_GRAY_PALETTE
 )
 plt.title("Frequency of Competence as Best (Mean, Median, Std)")
 plt.tight_layout()
@@ -419,7 +422,7 @@ sns.barplot(
     x="pair_label",
     y="count",
     hue="metric",
-    palette="gray"
+    palette=CUSTOM_GRAY_PALETTE
 )
 plt.title("Frequency of (Competence, Distance) Pairs as Best (Mean, Median, Std)")
 plt.xlabel("Pair (Competence | Distance)")
