@@ -48,7 +48,7 @@ def plot_boxplot_mean_by_competence(df, output_dir, dataset_name):
     sns.boxplot(data=df, x="competence", y="mean", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Mean Distribution by Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_mean_by_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_mean_by_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -59,7 +59,7 @@ def plot_boxplot_mean_by_distance(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Mean Distribution by Distance ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_mean_by_distance.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_mean_by_distance.png")
     plt.savefig(path)
     plt.close()
 
@@ -70,7 +70,7 @@ def plot_bar_mean_by_distance_competence(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Mean by Distance and Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_bar_mean_by_distance_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_bar_mean_by_distance_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -80,7 +80,7 @@ def plot_boxplot_median_by_competence(df, output_dir, dataset_name):
     sns.boxplot(data=df, x="competence", y="median", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Median Distribution by Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_median_by_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_median_by_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -91,7 +91,7 @@ def plot_boxplot_median_by_distance(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Median Distribution by Distance ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_median_by_distance.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_median_by_distance.png")
     plt.savefig(path)
     plt.close()
 
@@ -102,7 +102,7 @@ def plot_bar_median_by_distance_competence(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Median by Distance and Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_bar_median_by_distance_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_bar_median_by_distance_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -114,7 +114,7 @@ def plot_boxplot_duration_by_competence(df, output_dir, dataset_name):
     sns.boxplot(data=df, x="competence", y="duration", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Duration Distribution by Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_duration_by_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_duration_by_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -125,7 +125,7 @@ def plot_boxplot_duration_by_distance(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Duration Distribution by Distance ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_duration_by_distance.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_duration_by_distance.png")
     plt.savefig(path)
     plt.close()
 
@@ -136,7 +136,7 @@ def plot_bar_duration_by_distance_competence(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Duration by Distance and Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_bar_duration_by_distance_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_bar_duration_by_distance_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -148,7 +148,7 @@ def plot_boxplot_std_by_competence(df, output_dir, dataset_name):
     sns.boxplot(data=df, x="competence", y="std", palette=CUSTOM_GRAY_PALETTE)
     plt.title(f"Std Distribution by Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_std_by_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_std_by_competence.png")
     plt.savefig(path)
     plt.close()
 
@@ -159,7 +159,7 @@ def plot_boxplot_std_by_distance(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Std Distribution by Distance ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_boxplot_std_by_distance.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_boxplot_std_by_distance.png")
     plt.savefig(path)
     plt.close()
 
@@ -170,7 +170,7 @@ def plot_bar_std_by_distance_competence(df, output_dir, dataset_name):
     plt.xticks(rotation=45)
     plt.title(f"Std by Distance and Competence ({dataset_name})")
     plt.tight_layout()
-    path = os.path.join(output_dir, f"{dataset_name}_bar_std_by_distance_competence.png")
+    path = os.path.join(output_dir, f"./output/{dataset_name}_bar_std_by_distance_competence.png")
     plt.savefig(path)
     plt.close()
 # -----------------------------------------------------------
@@ -259,7 +259,7 @@ def analyze_dataset_by_group(path, group_column, output_dir="analysis_outputs"):
         best_worst_df = pd.DataFrame(best_worst_rows)
 
         # Save final CSV
-        best_worst_df.to_csv(os.path.join(group_output_dir, "best_worst_pairs.csv"), index=False)
+        best_worst_df.to_csv(os.path.join(group_output_dir, "./output/best_worst_pairs.csv"), index=False)
 
         print(f"\n✅ Analysis completed for group '{group_name}'! Results saved in: {group_output_dir}")
 
@@ -271,7 +271,7 @@ def analyze_dataset_by_group(path, group_column, output_dir="analysis_outputs"):
 # abalone_df.to_csv("metrics_results_abalone.csv", index=False)
 
 # Join all 'metrics_results*.csv' files in the current folder
-all_files = glob.glob("metrics_results*.csv")
+all_files = glob.glob("./metrics/output/metrics_results*.csv")
 dfs = [pd.read_csv(f) for f in all_files]
 combined_df = pd.concat(dfs, ignore_index=True)
 
@@ -291,13 +291,12 @@ with open("results.tex", "w") as f:
     latex_str = combined_df.to_latex(index=False)
     latex_str = latex_str.replace('_', '\\_')
     f.write(latex_str)
-    
 
-analyze_dataset_by_group("results.csv", group_column="dataset")
+analyze_dataset_by_group("./metrics/output/results.csv", group_column="dataset")
 
 # Load the CSV generated with the best pairs
 # Load all best_worst_pairs CSVs inside analysis_outputs subfolders
-best_worst_files = glob.glob("analysis_outputs/*/best_worst_pairs.csv")
+best_worst_files = glob.glob("output/datasets/*/best_worst_pairs.csv")
 dfs = [pd.read_csv(f) for f in best_worst_files]
 best_worst_df = pd.concat(dfs, ignore_index=True)
 
@@ -326,7 +325,7 @@ for metric in metrics:
     plt.title(f"Frequency of Distance as Best ({metric})")
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig(f"best_distance_distribution_{metric}.png")
+    plt.savefig(f"./output/images/best_distance_distribution_{metric}.png")
     plt.close()
 
     # 2. Distribution of times each competence appears as best
@@ -339,7 +338,7 @@ for metric in metrics:
     )
     plt.title(f"Frequency of Competence as Best ({metric})")
     plt.tight_layout()
-    plt.savefig(f"best_competence_distribution_{metric}.png")
+    plt.savefig(f"./output/images/best_competence_distribution_{metric}.png")
     plt.close()
 
     # 3. Distribution of frequency of (competence, distance) pairs as best
@@ -365,7 +364,7 @@ for metric in metrics:
     plt.ylabel("Frequency")
     plt.xticks(rotation=90)
     plt.tight_layout()
-    plt.savefig(f"best_pair_distribution_{metric}.png")
+    plt.savefig(f"./output/images/best_pair_distribution_{metric}.png")
     plt.close()
 
 
@@ -388,7 +387,7 @@ sns.barplot(
 plt.title("Frequency of Distance as Best (Mean, Median, Std)")
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig("best_distance_distribution_combined.png")
+plt.savefig("./output/images/best_distance_distribution_combined.png")
 plt.close()
 
 # Best competence
@@ -407,7 +406,7 @@ sns.barplot(
 )
 plt.title("Frequency of Competence as Best (Mean, Median, Std)")
 plt.tight_layout()
-plt.savefig("best_competence_distribution_combined.png")
+plt.savefig("./output/images/best_competence_distribution_combined.png")
 plt.close()
 
 # Best pair (competence, distance)
@@ -429,7 +428,7 @@ plt.xlabel("Pair (Competence | Distance)")
 plt.ylabel("Frequency")
 plt.xticks(rotation=90)
 plt.tight_layout()
-plt.savefig("best_pair_distribution_combined.png")
+plt.savefig("./output/images/best_pair_distribution_combined.png")
 plt.close()
 
 # Worst distance
@@ -452,7 +451,7 @@ sns.barplot(
 plt.title("Frequency of Distance as Worst (Mean, Median, Std)")
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig("worst_distance_distribution_combined.png")
+plt.savefig("./output/images/worst_distance_distribution_combined.png")
 plt.close()
 
 # Worst competence
@@ -474,7 +473,7 @@ sns.barplot(
 )
 plt.title("Frequency of Competence as Worst (Mean, Median, Std)")
 plt.tight_layout()
-plt.savefig("worst_competence_distribution_combined.png")
+plt.savefig("./output/images/worst_competence_distribution_combined.png")
 plt.close()
 
 # Worst pair (competence, distance)
@@ -499,7 +498,7 @@ plt.xlabel("Pair (Competence | Distance)")
 plt.ylabel("Frequency")
 plt.xticks(rotation=90)
 plt.tight_layout()
-plt.savefig("worst_pair_distribution_combined.png")
+plt.savefig("./output/images/worst_pair_distribution_combined.png")
 plt.close()
 
 # Worst distance (duration)
@@ -521,7 +520,7 @@ sns.barplot(
 plt.title("Frequency of Distance as Worst (Duration)")
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig("worst_distance_distribution_duration.png")
+plt.savefig("./output/images/worst_distance_distribution_duration.png")
 plt.close()
 
 # Worst competence (duration)
@@ -542,7 +541,7 @@ sns.barplot(
 )
 plt.title("Frequency of Competence as Worst (Duration)")
 plt.tight_layout()
-plt.savefig("worst_competence_distribution_duration.png")
+plt.savefig("./output/images/worst_competence_distribution_duration.png")
 plt.close()
 
 # Worst pair (competence, distance) for duration
@@ -566,5 +565,5 @@ plt.xlabel("Pair (Competence | Distance)")
 plt.ylabel("Frequency")
 plt.xticks(rotation=90)
 plt.tight_layout()
-plt.savefig("worst_pair_distribution_duration.png")
+plt.savefig("./output/images/worst_pair_distribution_duration.png")
 plt.close()

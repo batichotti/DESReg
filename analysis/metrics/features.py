@@ -88,7 +88,7 @@ def load_dataset(dataset='abalone'):
     dataset : str, optional
         The name of the dataset to load (default is 'abalone').
         The function expects a CSV file with the same name (case-insensitive)
-        in the '../datasets' directory relative to this file.
+        in the './datasets' directory relative to this file.
     Returns
     -------
     X : numpy.ndarray
@@ -104,11 +104,11 @@ def load_dataset(dataset='abalone'):
     The dataset CSV file should have the target variable in the first column.
     """
     dataset = dataset.lower()
-    datasets_dir = path.join(path.dirname(__file__), "../datasets")
+    datasets_dir = path.join(path.dirname(__file__), "../../datasets")
     dataset_files = {file[:-4].lower(): path.join(datasets_dir, file) for file in listdir(datasets_dir) if file.endswith('.csv')}
     
     if dataset not in dataset_files:
-        raise ValueError(f"Dataset '{dataset}' não suportado.")
+        raise ValueError(f"Dataset '{dataset}' not supported.")
     
     data = pd.read_csv(dataset_files[dataset], low_memory=False)
     X = data.iloc[:, 1:].to_numpy()

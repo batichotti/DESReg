@@ -94,7 +94,7 @@ if __name__ == "__main__":
                 print("=" * 30)
 
         df_dataset = pd.DataFrame([m.__dict__ for m in dataset_metrics])
-        csv_path_dataset = f"metrics_results_{dataset}.csv"
+        csv_path_dataset = f"./output/metrics_results_{dataset}.csv"
         df_dataset.to_csv(csv_path_dataset, index=False)
         print(f"Metrics salvo para dataset {dataset} em: {csv_path_dataset}")
 
