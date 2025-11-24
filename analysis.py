@@ -431,3 +431,140 @@ plt.xticks(rotation=90)
 plt.tight_layout()
 plt.savefig("best_pair_distribution_combined.png")
 plt.close()
+
+# Worst distance
+worst_distance_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"].isin(metrics_to_plot))
+    ]
+    .groupby(["distance", "metric"]).size().reset_index(name="count")
+)
+plt.figure(figsize=(10, 6))
+sns.barplot(
+    data=worst_distance_freq,
+    x="distance",
+    y="count",
+    hue="metric",
+    order=DISTANCE_HEURISTICS_LIST,
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of Distance as Worst (Mean, Median, Std)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("worst_distance_distribution_combined.png")
+plt.close()
+
+# Worst competence
+worst_competence_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"].isin(metrics_to_plot))
+    ]
+    .groupby(["competence", "metric"]).size().reset_index(name="count")
+)
+plt.figure(figsize=(8, 5))
+sns.barplot(
+    data=worst_competence_freq,
+    x="competence",
+    y="count",
+    hue="metric",
+    order=COMPETENCE_REGION_LIST,
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of Competence as Worst (Mean, Median, Std)")
+plt.tight_layout()
+plt.savefig("worst_competence_distribution_combined.png")
+plt.close()
+
+# Worst pair (competence, distance)
+worst_pair_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"].isin(metrics_to_plot))
+    ]
+    .groupby(["competence", "distance", "metric"]).size().reset_index(name="count")
+)
+worst_pair_freq["pair_label"] = worst_pair_freq.apply(lambda x: f"{x['competence']} | {x['distance']}", axis=1)
+plt.figure(figsize=(12, 8))
+sns.barplot(
+    data=worst_pair_freq,
+    x="pair_label",
+    y="count",
+    hue="metric",
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of (Competence, Distance) Pairs as Worst (Mean, Median, Std)")
+plt.xlabel("Pair (Competence | Distance)")
+plt.ylabel("Frequency")
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.savefig("worst_pair_distribution_combined.png")
+plt.close()
+
+# Worst distance (duration)
+worst_duration_distance_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"] == "duration")
+    ]
+    .groupby(["distance"]).size().reset_index(name="count")
+)
+plt.figure(figsize=(10, 6))
+sns.barplot(
+    data=worst_duration_distance_freq,
+    x="distance",
+    y="count",
+    order=DISTANCE_HEURISTICS_LIST,
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of Distance as Worst (Duration)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("worst_distance_distribution_duration.png")
+plt.close()
+
+# Worst competence (duration)
+worst_duration_competence_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"] == "duration")
+    ]
+    .groupby(["competence"]).size().reset_index(name="count")
+)
+plt.figure(figsize=(8, 5))
+sns.barplot(
+    data=worst_duration_competence_freq,
+    x="competence",
+    y="count",
+    order=COMPETENCE_REGION_LIST,
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of Competence as Worst (Duration)")
+plt.tight_layout()
+plt.savefig("worst_competence_distribution_duration.png")
+plt.close()
+
+# Worst pair (competence, distance) for duration
+worst_duration_pair_freq = (
+    best_worst_df[
+        (best_worst_df["type"] == "worst") &
+        (best_worst_df["metric"] == "duration")
+    ]
+    .groupby(["competence", "distance"]).size().reset_index(name="count")
+)
+worst_duration_pair_freq["pair_label"] = worst_duration_pair_freq.apply(lambda x: f"{x['competence']} | {x['distance']}", axis=1)
+plt.figure(figsize=(12, 8))
+sns.barplot(
+    data=worst_duration_pair_freq,
+    x="pair_label",
+    y="count",
+    palette=CUSTOM_GRAY_PALETTE
+)
+plt.title("Frequency of (Competence, Distance) Pairs as Worst (Duration)")
+plt.xlabel("Pair (Competence | Distance)")
+plt.ylabel("Frequency")
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.savefig("worst_pair_distribution_duration.png")
+plt.close()
